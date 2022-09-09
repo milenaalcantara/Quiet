@@ -15,6 +15,7 @@
 		F300D75628C7CEB700AE0E9B /* DetailsMetterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75528C7CEB700AE0E9B /* DetailsMetterTests.swift */; };
 		F300D76028C7CEB700AE0E9B /* DetailsMetterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */; };
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
+		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F300D75B28C7CEB700AE0E9B /* DetailsMetterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DetailsMetterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITests.swift; sourceTree = "<group>"; };
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		F300D76F28C7CF7900AE0E9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F38D205C28CB657D0080ABEF /* BeachView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* ViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
 				F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */,
