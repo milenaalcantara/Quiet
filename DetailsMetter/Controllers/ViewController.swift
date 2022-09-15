@@ -12,7 +12,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
+        self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
+        
+//        let tapGesture = UITapGestureRecognizer()
+//        tapGesture.addTarget(self, action: #selector(actionGesture))
+//        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func actionGesture() {
+        print("screen clicked")
     }
     
     override func loadView() { // carrega a view criada programaticamente para ser mostrada
