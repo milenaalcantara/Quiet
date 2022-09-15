@@ -16,6 +16,9 @@
 		F300D76028C7CEB700AE0E9B /* DetailsMetterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */; };
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
 		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
+		F38D206228CF5A380080ABEF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F38D206128CF5A380080ABEF /* Lottie */; };
+		F38D206528CF62020080ABEF /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D206428CF62020080ABEF /* iOSDevCenters+GIF.swift */; };
+		F38D206828CF62D60080ABEF /* starfish-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = F38D206728CF62D60080ABEF /* starfish-gif.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,8 @@
 		F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITests.swift; sourceTree = "<group>"; };
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
+		F38D206428CF62020080ABEF /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		F38D206728CF62D60080ABEF /* starfish-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "starfish-gif.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38D206228CF5A380080ABEF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,7 @@
 		F300D73D28C7CEB600AE0E9B /* DetailsMetter */ = {
 			isa = PBXGroup;
 			children = (
+				F38D206328CF61DA0080ABEF /* Resources */,
 				F300D77128C7CF8B00AE0E9B /* Controllers */,
 				F300D77028C7CF8200AE0E9B /* ViewModel */,
 				F300D76F28C7CF7900AE0E9B /* View */,
@@ -159,6 +166,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F38D206328CF61DA0080ABEF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F38D206728CF62D60080ABEF /* starfish-gif.gif */,
+				F38D206428CF62020080ABEF /* iOSDevCenters+GIF.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +191,9 @@
 			dependencies = (
 			);
 			name = DetailsMetter;
+			packageProductDependencies = (
+				F38D206128CF5A380080ABEF /* Lottie */,
+			);
 			productName = DetailsMetter;
 			productReference = F300D73B28C7CEB600AE0E9B /* DetailsMetter.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +266,9 @@
 				Base,
 			);
 			mainGroup = F300D73228C7CEB600AE0E9B;
+			packageReferences = (
+				F38D206028CF5A380080ABEF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = F300D73C28C7CEB600AE0E9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -264,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
+				F38D206828CF62D60080ABEF /* starfish-gif.gif in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
+				F38D206528CF62020080ABEF /* iOSDevCenters+GIF.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* ViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
 				F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */,
@@ -624,6 +648,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F38D206028CF5A380080ABEF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F38D206128CF5A380080ABEF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F38D206028CF5A380080ABEF /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F300D73328C7CEB600AE0E9B /* Project object */;
 }
