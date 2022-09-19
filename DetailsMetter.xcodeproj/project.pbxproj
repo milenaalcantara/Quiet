@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6426C63028D35D4F00F76D3C /* Haptics Manager.swift */; };
+		64D0538428D36079007FE75E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538328D36079007FE75E /* success.mp3 */; };
+		64D0538628D4C536007FE75E /* ocean.json in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538528D4C536007FE75E /* ocean.json */; };
 		F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */; };
 		F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */; };
 		F300D74328C7CEB600AE0E9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74228C7CEB600AE0E9B /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6426C63028D35D4F00F76D3C /* Haptics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptics Manager.swift"; sourceTree = "<group>"; };
+		64D0538328D36079007FE75E /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
+		64D0538528D4C536007FE75E /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
 		F300D73B28C7CEB600AE0E9B /* DetailsMetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetailsMetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F38D205C28CB657D0080ABEF /* BeachView.swift */,
+				6426C63028D35D4F00F76D3C /* Haptics Manager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,7 +176,9 @@
 		F38D206328CF61DA0080ABEF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				64D0538528D4C536007FE75E /* ocean.json */,
 				F38D206728CF62D60080ABEF /* starfish-gif.gif */,
+				64D0538328D36079007FE75E /* success.mp3 */,
 				F38D206428CF62020080ABEF /* iOSDevCenters+GIF.swift */,
 			);
 			name = Resources;
@@ -286,7 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
+				64D0538628D4C536007FE75E /* ocean.json in Resources */,
 				F38D206828CF62D60080ABEF /* starfish-gif.gif in Resources */,
+				64D0538428D36079007FE75E /* success.mp3 in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +328,7 @@
 				F300D74328C7CEB600AE0E9B /* ViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
 				F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */,
+				6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

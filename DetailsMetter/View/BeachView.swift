@@ -6,17 +6,38 @@
 //
 
 import UIKit
+import AVFoundation
 import Lottie
 
 class BeachView: UIView {
     
+    
+    var player: AVAudioPlayer!
+    var i = 0
+    
     lazy var backgroundImageView: UIImageView = {
-        let backgroundImage = UIImage(named: "beachBackground")
+        let backgroundImage = UIImage(named: "background")
         let backgroundView = UIImageView(image: backgroundImage)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
     
         return backgroundView
     }()
+    
+    lazy var createButton: UIButton = {
+         let button = UIButton(type: .system)
+         button.translatesAutoresizingMaskIntoConstraints = false
+         button.setTitle("Botão", for: .normal)
+         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+         button.addTarget(self, action: #selector(buttonActions), for: .touchUpInside)
+         button.setTitleColor(.black, for: .normal)
+         button.clipsToBounds = true
+         button.layer.borderWidth = 1
+         button.layer.borderColor = UIColor.black.cgColor
+         button.layer.cornerRadius = 8
+        
+       return button
+         
+     }()
     
     lazy var starAsset: AnimationView = {
         let animatedView: AnimationView
@@ -43,10 +64,72 @@ class BeachView: UIView {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
     }
     
+    lazy var oceanAsset: AnimationView = {
+            let oceanView: AnimationView
+            oceanView = .init(name: "ocean")
+            oceanView.loopMode = .loop
+            oceanView.play()
+            oceanView.contentMode = .scaleToFill
+
+            oceanView.translatesAutoresizingMaskIntoConstraints = false
+
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(actionsGesture(_:)))
+            tapGesture.numberOfTapsRequired = 1
+            tapGesture.numberOfTouchesRequired = 1
+
+            oceanView.addGestureRecognizer(tapGesture)
+            oceanView.isUserInteractionEnabled = true
+
+            return oceanView
+        }()
+    @objc func actionsGesture(_ gesture: UITapGestureRecognizer) {
+            print("ocean clicked")
+
+            // coloca aqui irá acontecer quando o usuário clicar no elemento x
+        }
+    
+    
+    @objc func buttonActions() {
+        playSound()
+        playHaptics()
+    }
+    
+    func playSound(){
+            
+            
+           guard let url = Bundle.main.url(forResource: "success", withExtension: "mp3") else {
+               return
+           }
+            
+        
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+
+                player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+                guard let player = player else { return }
+
+                player.play()
+
+            } catch let error {
+                print(error.localizedDescription)
+
+            }
+        }
+        
+        func playHaptics() {
+            
+            HapticsManager.shared.vibrate(for: .success)
+            
+        }
+    
     override init(frame: CGRect) {
        super.init(frame: frame)
         self.addSubview(backgroundImageView)
         self.addSubview(starAsset)
+        self.addSubview(createButton)
+        self.addSubview(oceanAsset)
         
         configureContraints()
     }
@@ -66,6 +149,14 @@ class BeachView: UIView {
             self.starAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.starAsset.heightAnchor.constraint(equalToConstant: 50),
             self.starAsset.widthAnchor.constraint(equalToConstant: 50),
+            
+            self.createButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                     self.createButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
+            self.oceanAsset.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.oceanAsset.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 310),
+                        self.oceanAsset.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.4),
+                        self.oceanAsset.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
         ])
     }
 }
