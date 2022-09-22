@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6426C63028D35D4F00F76D3C /* Haptics Manager.swift */; };
+		6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA428DC9D4000F1605E /* seagulls.mp3 */; };
+		6441CFA728DCF64500F1605E /* coqueiro.json in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA628DCF64500F1605E /* coqueiro.json */; };
+		6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA828DCF8B900F1605E /* sea.mp3 */; };
+		6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFAA28DCF8E000F1605E /* wind.mp3 */; };
 		64D0538428D36079007FE75E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538328D36079007FE75E /* success.mp3 */; };
 		F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */; };
 		F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */; };
@@ -20,7 +24,7 @@
 		F3577F6B28DB565B0098F93C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F6A28DB565B0098F93C /* data.json */; };
 		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
 		F38D206228CF5A380080ABEF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F38D206128CF5A380080ABEF /* Lottie */; };
-		F3CBCB9228D9E9FF00D69B50 /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9128D9E9FF00D69B50 /* sea.mp3 */; };
+		F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */; };
 		F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9328D9FBCB00D69B50 /* ocean.json */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,10 @@
 
 /* Begin PBXFileReference section */
 		6426C63028D35D4F00F76D3C /* Haptics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptics Manager.swift"; sourceTree = "<group>"; };
+		6441CFA428DC9D4000F1605E /* seagulls.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seagulls.mp3; sourceTree = "<group>"; };
+		6441CFA628DCF64500F1605E /* coqueiro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coqueiro.json; sourceTree = "<group>"; };
+		6441CFA828DCF8B900F1605E /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
+		6441CFAA28DCF8E000F1605E /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		64D0538328D36079007FE75E /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		F300D73B28C7CEB600AE0E9B /* DetailsMetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetailsMetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +66,7 @@
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3577F6A28DB565B0098F93C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
-		F3CBCB9128D9E9FF00D69B50 /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
+		F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seanulo.mp3; sourceTree = "<group>"; };
 		F3CBCB9328D9FBCB00D69B50 /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +193,10 @@
 		F3CBCB9028D9E9DD00D69B50 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				F3CBCB9128D9E9FF00D69B50 /* sea.mp3 */,
+				6441CFA428DC9D4000F1605E /* seagulls.mp3 */,
+				F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */,
+				6441CFA828DCF8B900F1605E /* sea.mp3 */,
+				6441CFAA28DCF8E000F1605E /* wind.mp3 */,
 				64D0538328D36079007FE75E /* success.mp3 */,
 			);
 			name = Sounds;
@@ -195,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				F3577F6A28DB565B0098F93C /* data.json */,
+				6441CFA628DCF64500F1605E /* coqueiro.json */,
 				F3CBCB9328D9FBCB00D69B50 /* ocean.json */,
 			);
 			name = Images;
@@ -311,9 +323,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
+				6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */,
 				F3577F6B28DB565B0098F93C /* data.json in Resources */,
+				6441CFA728DCF64500F1605E /* coqueiro.json in Resources */,
+				6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */,
+				6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */,
 				64D0538428D36079007FE75E /* success.mp3 in Resources */,
-				F3CBCB9228D9E9FF00D69B50 /* sea.mp3 in Resources */,
+				F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */,
 				F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
 			);
@@ -513,7 +529,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2P65JA735T;
+				DEVELOPMENT_TEAM = D77WMSS6V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DetailsMetter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -541,7 +557,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2P65JA735T;
+				DEVELOPMENT_TEAM = D77WMSS6V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DetailsMetter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

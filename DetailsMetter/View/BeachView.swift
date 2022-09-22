@@ -16,12 +16,48 @@ class BeachView: UIView {
     
     var isPlaying = false
     
+    lazy var solAsset: UIImageView = {
+       let solView = UIImageView(image: UIImage(named: "sol"))
+        solView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(tapSunAction(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+
+        solView.addGestureRecognizer(tapPlayGesture)
+        solView.isUserInteractionEnabled = true
+//
+        return solView
+    }()
+    
     lazy var backgroundImageView: UIImageView = {
-        let backgroundImage = UIImage(named: "background")
+        let backgroundImage = UIImage(named: "background2")
         let backgroundView = UIImageView(image: backgroundImage)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
     
         return backgroundView
+    }()
+    
+    lazy var conchaAsset : UIImageView = {
+        let conchaView = UIImageView(image: UIImage(named: "concha"))
+        conchaView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return conchaView
+    }()
+    
+//    lazy var starAsset : UIImageView = {
+//        let starView = UIImageView(image: UIImage(named: "star2"))
+//        starView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return starView
+//    }()
+    
+    lazy var barcoAsset : UIImageView = {
+        let barcoView = UIImageView(image: UIImage(named: "barco"))
+        barcoView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return barcoView
     }()
     
     lazy var oceanAsset: AnimationView = {
@@ -42,6 +78,24 @@ class BeachView: UIView {
         return oceanView
     }()
     
+    lazy var coqueiroAsset: AnimationView = {
+        let coqueiroView: AnimationView
+        coqueiroView = .init(name: "coqueiro")
+        coqueiroView.loopMode = .loop
+        coqueiroView.play()
+        coqueiroView.contentMode = .scaleToFill
+        coqueiroView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(tapCoqueiroAction(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        
+        coqueiroView.addGestureRecognizer(tapPlayGesture)
+        coqueiroView.isUserInteractionEnabled = true
+        
+        return coqueiroView
+    }()
+    
     @objc func tapOceanAction(_ gesture: UITapGestureRecognizer) {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         playHaptics()
@@ -54,6 +108,33 @@ class BeachView: UIView {
         }
     }
         
+    
+    
+    @objc func tapSunAction(_ gesture: UITapGestureRecognizer) {
+        // coloca aqui irá acontecer quando o usuário clicar no elemento x
+        playHaptics()
+        if isPlaying {
+            playSound(fileName: "seagulls", extensionType: "mp3", play: false)
+            isPlaying = false
+        } else {
+            playSound(fileName: "seagulls", extensionType: "mp3", play: true)
+            isPlaying = true
+        }
+    }
+    
+    @objc func tapCoqueiroAction(_ gesture: UITapGestureRecognizer) {
+        // coloca aqui irá acontecer quando o usuário clicar no elemento x
+        playHaptics()
+        if isPlaying {
+            playSound(fileName: "wind", extensionType: "mp3", play: false)
+            isPlaying = false
+        } else {
+            playSound(fileName: "wind", extensionType: "mp3", play: true)
+            isPlaying = true
+        }
+    }
+    
+    
     func playHaptics() {
         HapticsManager.shared.vibrate(for: .success)
     }
@@ -62,6 +143,11 @@ class BeachView: UIView {
        super.init(frame: frame)
         self.addSubview(backgroundImageView)
         self.addSubview(oceanAsset)
+        self.addSubview(solAsset)
+        self.addSubview(conchaAsset)
+//        self.addSubview(starAsset)
+        self.addSubview(barcoAsset)
+        self.addSubview(coqueiroAsset)
         
         configureContraints()
     }
@@ -78,9 +164,37 @@ class BeachView: UIView {
             self.backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             self.oceanAsset.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.oceanAsset.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 270),
+            self.oceanAsset.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 305),
             self.oceanAsset.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.4),
             self.oceanAsset.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            
+            self.solAsset.bottomAnchor.constraint(equalTo: oceanAsset.topAnchor, constant: -80 ),
+//            self.solAsset.centerXAnchor.constraint(equalTo: self.centerXAnchor ),
+            self.solAsset.heightAnchor.constraint(equalToConstant: 140),
+            self.solAsset.widthAnchor.constraint(equalToConstant: 150),
+            self.solAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            
+            self.oceanAsset.bottomAnchor.constraint(equalTo: conchaAsset.topAnchor, constant: -70),
+            self.conchaAsset.heightAnchor.constraint(equalToConstant: 30),
+            self.conchaAsset.widthAnchor.constraint(equalToConstant: 30),
+            self.conchaAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
+            
+//            self.oceanAsset.bottomAnchor.constraint(equalTo: starAsset.topAnchor, constant: -90),
+//            self.starAsset.heightAnchor.constraint(equalToConstant: 25),
+//            self.starAsset.widthAnchor.constraint(equalToConstant: 25),
+//            self.starAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 150),
+            
+            self.barcoAsset.bottomAnchor.constraint(equalTo: oceanAsset.topAnchor, constant: 50 ),
+            self.barcoAsset.heightAnchor.constraint(equalToConstant: 80),
+            self.barcoAsset.widthAnchor.constraint(equalToConstant: 80),
+            self.barcoAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35),
+            
+            
+            self.oceanAsset.bottomAnchor.constraint(equalTo: coqueiroAsset.topAnchor, constant: 130),
+            self.coqueiroAsset.heightAnchor.constraint(equalToConstant: 250),
+            self.coqueiroAsset.widthAnchor.constraint(equalToConstant: 178),
+            self.coqueiroAsset.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 2),
+            
         ])
     }
 }
