@@ -15,13 +15,18 @@
 		64D0538428D36079007FE75E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538328D36079007FE75E /* success.mp3 */; };
 		F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */; };
 		F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */; };
-		F300D74328C7CEB600AE0E9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74228C7CEB600AE0E9B /* ViewController.swift */; };
+		F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74228C7CEB600AE0E9B /* BeachViewController.swift */; };
 		F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F300D74728C7CEB600AE0E9B /* Assets.xcassets */; };
 		F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F300D74928C7CEB600AE0E9B /* LaunchScreen.storyboard */; };
 		F300D75628C7CEB700AE0E9B /* DetailsMetterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75528C7CEB700AE0E9B /* DetailsMetterTests.swift */; };
 		F300D76028C7CEB700AE0E9B /* DetailsMetterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */; };
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
 		F3577F6B28DB565B0098F93C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F6A28DB565B0098F93C /* data.json */; };
+		F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7828DD4B7C0098F93C /* ocean-gradient.json */; };
+		F3577F7B28DD567C0098F93C /* beach-background.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7A28DD567C0098F93C /* beach-background.json */; };
+		F3577F7D28DD5BE00098F93C /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7C28DD5BE00098F93C /* splash.json */; };
+		F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7E28DD60140098F93C /* starfish-aplash.json */; };
+		F3577F8128DD64B50098F93C /* 100073-medzen.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3577F8028DD64B50098F93C /* 100073-medzen.gif */; };
 		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
 		F38D206228CF5A380080ABEF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F38D206128CF5A380080ABEF /* Lottie */; };
 		F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */; };
@@ -55,7 +60,7 @@
 		F300D73B28C7CEB600AE0E9B /* DetailsMetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetailsMetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F300D74228C7CEB600AE0E9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F300D74228C7CEB600AE0E9B /* BeachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachViewController.swift; sourceTree = "<group>"; };
 		F300D74728C7CEB600AE0E9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F300D74A28C7CEB600AE0E9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F300D74C28C7CEB600AE0E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +70,11 @@
 		F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITests.swift; sourceTree = "<group>"; };
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3577F6A28DB565B0098F93C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		F3577F7828DD4B7C0098F93C /* ocean-gradient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ocean-gradient.json"; sourceTree = "<group>"; };
+		F3577F7A28DD567C0098F93C /* beach-background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "beach-background.json"; sourceTree = "<group>"; };
+		F3577F7C28DD5BE00098F93C /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		F3577F7E28DD60140098F93C /* starfish-aplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "starfish-aplash.json"; sourceTree = "<group>"; };
+		F3577F8028DD64B50098F93C /* 100073-medzen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "100073-medzen.gif"; sourceTree = "<group>"; };
 		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
 		F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seanulo.mp3; sourceTree = "<group>"; };
 		F3CBCB9328D9FBCB00D69B50 /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
@@ -121,10 +131,7 @@
 			children = (
 				F38D206328CF61DA0080ABEF /* Resources */,
 				F300D77128C7CF8B00AE0E9B /* Controllers */,
-				F300D77028C7CF8200AE0E9B /* ViewModel */,
 				F300D76F28C7CF7900AE0E9B /* View */,
-				F300D76E28C7CF6D00AE0E9B /* Model */,
-				F300D74928C7CEB600AE0E9B /* LaunchScreen.storyboard */,
 				F300D74C28C7CEB600AE0E9B /* Info.plist */,
 			);
 			path = DetailsMetter;
@@ -147,32 +154,19 @@
 			path = DetailsMetterUITests;
 			sourceTree = "<group>";
 		};
-		F300D76E28C7CF6D00AE0E9B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		F300D76F28C7CF7900AE0E9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F300D74928C7CEB600AE0E9B /* LaunchScreen.storyboard */,
 				F38D205C28CB657D0080ABEF /* BeachView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		F300D77028C7CF8200AE0E9B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		F300D77128C7CF8B00AE0E9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F300D74228C7CEB600AE0E9B /* ViewController.swift */,
+				F300D74228C7CEB600AE0E9B /* BeachViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +199,11 @@
 		F3CBCB9528D9FBCF00D69B50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F3577F8028DD64B50098F93C /* 100073-medzen.gif */,
+				F3577F7E28DD60140098F93C /* starfish-aplash.json */,
+				F3577F7C28DD5BE00098F93C /* splash.json */,
+				F3577F7A28DD567C0098F93C /* beach-background.json */,
+				F3577F7828DD4B7C0098F93C /* ocean-gradient.json */,
 				F3577F6A28DB565B0098F93C /* data.json */,
 				6441CFA628DCF64500F1605E /* coqueiro.json */,
 				F3CBCB9328D9FBCB00D69B50 /* ocean.json */,
@@ -323,13 +322,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
+				F3577F7B28DD567C0098F93C /* beach-background.json in Resources */,
 				6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */,
 				F3577F6B28DB565B0098F93C /* data.json in Resources */,
+				F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */,
+				F3577F7D28DD5BE00098F93C /* splash.json in Resources */,
+				F3577F8128DD64B50098F93C /* 100073-medzen.gif in Resources */,
 				6441CFA728DCF64500F1605E /* coqueiro.json in Resources */,
 				6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */,
 				6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */,
 				64D0538428D36079007FE75E /* success.mp3 in Resources */,
 				F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */,
+				F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */,
 				F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
 			);
@@ -357,7 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
-				F300D74328C7CEB600AE0E9B /* ViewController.swift in Sources */,
+				F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
 				F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */,
 				6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */,
@@ -529,7 +533,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D77WMSS6V2;
+				DEVELOPMENT_TEAM = 2P65JA735T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DetailsMetter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D77WMSS6V2;
+				DEVELOPMENT_TEAM = 2P65JA735T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DetailsMetter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
