@@ -9,8 +9,9 @@ import UIKit
 import AVFoundation
 
 class BeachViewController: UIViewController {
-    private var player: AVAudioPlayer!
-//    private var isPlaying = false
+    private var players = [URL:AVAudioPlayer]()
+    private var duplicatePlayers = [AVAudioPlayer]()
+    
     private var isPlayingOcean = false
     private var isPlayingSun = false
     private var isPlayingCoconut = false
@@ -34,10 +35,10 @@ extension BeachViewController: BeachViewDelegate {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         playHaptics()
         if isPlayingOcean {
-            playSound(fileName: "sea", extensionType: "mp3", play: false)
+            playSound(fileName: "sea")
             isPlayingOcean = false
         } else {
-            playSound(fileName: "sea", extensionType: "mp3", play: true)
+            playSound(fileName: "sea")
             isPlayingOcean = true
         }
     }
@@ -45,23 +46,24 @@ extension BeachViewController: BeachViewDelegate {
     func didTapSunAsset() {
         playHaptics()
         if isPlayingSun {
-            playSound(fileName: "seagulls", extensionType: "mp3", play: false)
+            playSound(fileName: "seagulls")
             isPlayingSun = false
         } else {
-            playSound(fileName: "seagulls", extensionType: "mp3", play: true)
+            playSound(fileName: "seagulls")
             isPlayingSun = true
         }
     }
     
     func didTapCoconutAsset() {
-        playHaptics()
         if isPlayingCoconut {
-            playSound(fileName: "wind", extensionType: "mp3", play: false)
+            playSound(fileName: "wind")
             isPlayingCoconut = false
+            playHaptics()
         } else {
-            playSound(fileName: "wind", extensionType: "mp3", play: true)
+            playSound(fileName: "wind")
             isPlayingCoconut = true
         }
+        
     }
     
     func playHaptics() {
@@ -70,30 +72,46 @@ extension BeachViewController: BeachViewDelegate {
 }
 
 extension BeachViewController {
-    func playSound(fileName: String, extensionType: String, play: Bool){
-       guard let url = Bundle.main.url(forResource: fileName, withExtension: extensionType) else {
+    func playSound(fileName: String){
+        guard let soundURL = Bundle.main.url(forResource: fileName, withExtension: ".mp3")
+        else {
            return
-       }
-    
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            print(String(player.numberOfChannels))
-            
-            guard let player = player else { return }
-
-            if play {
-                player.play()
-                player.numberOfLoops = -1 //toca em loop infinito
-            } else if play == false{
-                player.stop()
-            }
-
-        } catch let error {
-            print(error.localizedDescription)
-
         }
+        
+        if let player = self.players[soundURL] {
+            if !player.isPlaying {
+                player.numberOfLoops = -1 //toca em loop infinito
+                player.prepareToPlay()
+                player.play()
+                return
+            } else if player.isPlaying {
+                player.stop()
+                return
+            }
+            createADuplicatedPlayer(soundURL: soundURL)
+            return
+        }
+        
+        createANewPlayer(soundURL: soundURL)
+    }
+    
+    func createANewPlayer(soundURL: URL) {
+        do{
+            let player = try AVAudioPlayer(contentsOf: soundURL)
+            players[soundURL] = player
+            player.numberOfLoops = -1
+            player.prepareToPlay()
+            player.play()
+        } catch {
+            print("Could not play sound file!")
+        }
+    }
+    
+    func createADuplicatedPlayer(soundURL: URL) {
+        let newPlayer = try! AVAudioPlayer(contentsOf: soundURL)
+        duplicatePlayers.append(newPlayer)
+        newPlayer.numberOfLoops = -1
+        newPlayer.prepareToPlay()
+        newPlayer.play()
     }
 }
