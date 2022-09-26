@@ -24,6 +24,12 @@ class BeachView: UIView {
     
     var isPlaying = false
     
+    lazy var estrelaAsset: UIImageView = {
+        let estrelaView = UIImageView(image: UIImage (named: "estrela"))
+        estrelaView.translatesAutoresizingMaskIntoConstraints = false
+        return estrelaView
+    }()
+    
     lazy var sunAsset: UIImageView = {
        let solView = UIImageView(image: UIImage(named: "sol"))
         solView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,6 +123,7 @@ class BeachView: UIView {
         self.addSubview(conchaAsset)
         self.addSubview(barcoAsset)
         self.addSubview(coconutAsset)
+        self.addSubview(estrelaAsset)
         
         configureContraints()
     }
@@ -156,6 +163,11 @@ class BeachView: UIView {
             self.coconutAsset.heightAnchor.constraint(equalToConstant: 250),
             self.coconutAsset.widthAnchor.constraint(equalToConstant: 178),
             self.coconutAsset.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 40),
+            
+            self.oceanAsset.bottomAnchor.constraint(equalTo: estrelaAsset.topAnchor, constant: -40),
+            self.estrelaAsset.heightAnchor.constraint(equalToConstant: 30),
+            self.estrelaAsset.widthAnchor.constraint(equalToConstant: 30),
+            self.estrelaAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 160),
             
         ])
     }
