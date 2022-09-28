@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2884A1D728E1D33400CCA92F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2884A1D628E1D33400CCA92F /* Lottie */; };
-		2884A1D928E1E38900CCA92F /* ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2884A1D828E1E38900CCA92F /* ocean.mp3 */; };
 		6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6426C63028D35D4F00F76D3C /* Haptics Manager.swift */; };
 		6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA428DC9D4000F1605E /* seagulls.mp3 */; };
 		6441CFA728DCF64500F1605E /* coqueiro.json in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA628DCF64500F1605E /* coqueiro.json */; };
@@ -23,6 +22,7 @@
 		F300D75628C7CEB700AE0E9B /* DetailsMetterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75528C7CEB700AE0E9B /* DetailsMetterTests.swift */; };
 		F300D76028C7CEB700AE0E9B /* DetailsMetterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */; };
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
+		F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F30CD00128E480520039F2BE /* ocean-teste.mp3 */; };
 		F3577F6B28DB565B0098F93C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F6A28DB565B0098F93C /* data.json */; };
 		F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7828DD4B7C0098F93C /* ocean-gradient.json */; };
 		F3577F7B28DD567C0098F93C /* beach-background.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7A28DD567C0098F93C /* beach-background.json */; };
@@ -52,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2884A1D828E1E38900CCA92F /* ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ocean.mp3; path = ../../../../Downloads/ocean.mp3; sourceTree = "<group>"; };
 		6426C63028D35D4F00F76D3C /* Haptics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptics Manager.swift"; sourceTree = "<group>"; };
 		6441CFA428DC9D4000F1605E /* seagulls.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seagulls.mp3; sourceTree = "<group>"; };
 		6441CFA628DCF64500F1605E /* coqueiro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coqueiro.json; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		F300D75B28C7CEB700AE0E9B /* QuietUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuietUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITests.swift; sourceTree = "<group>"; };
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F30CD00128E480520039F2BE /* ocean-teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ocean-teste.mp3"; sourceTree = "<group>"; };
 		F3577F6A28DB565B0098F93C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F3577F7828DD4B7C0098F93C /* ocean-gradient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ocean-gradient.json"; sourceTree = "<group>"; };
 		F3577F7A28DD567C0098F93C /* beach-background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "beach-background.json"; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		F3CBCB9028D9E9DD00D69B50 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				2884A1D828E1E38900CCA92F /* ocean.mp3 */,
+				F30CD00128E480520039F2BE /* ocean-teste.mp3 */,
 				6441CFA428DC9D4000F1605E /* seagulls.mp3 */,
 				F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */,
 				6441CFA828DCF8B900F1605E /* sea.mp3 */,
@@ -327,6 +327,7 @@
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
 				F3577F7B28DD567C0098F93C /* beach-background.json in Resources */,
 				6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */,
+				F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */,
 				F3577F6B28DB565B0098F93C /* data.json in Resources */,
 				F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */,
 				F3577F7D28DD5BE00098F93C /* splash.json in Resources */,
@@ -337,7 +338,6 @@
 				64D0538428D36079007FE75E /* success.mp3 in Resources */,
 				F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */,
 				F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */,
-				2884A1D928E1E38900CCA92F /* ocean.mp3 in Resources */,
 				F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
 			);
