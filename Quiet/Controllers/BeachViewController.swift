@@ -35,10 +35,10 @@ extension BeachViewController: BeachViewDelegate {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         playHaptics()
         if isPlayingOcean {
-            playSound(fileName: "ocean")
+            playSound(fileName: "ocean-teste")
             isPlayingOcean = false
         } else {
-            playSound(fileName: "ocean")
+            playSound(fileName: "ocean-teste")
             isPlayingOcean = true
         }
     }
