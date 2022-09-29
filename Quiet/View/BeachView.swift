@@ -10,6 +10,7 @@ import AVFoundation
 import Lottie
 
 protocol BeachViewDelegate: AnyObject {
+    func tapSoundButtonAction()
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
@@ -23,6 +24,24 @@ class BeachView: UIView {
     var i = 0
     
     var isPlaying = false
+    
+    lazy var soundButton: UIButton = {
+        let icon = UIImage(systemName: "music.note")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.setImage(icon, for: .normal)
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = false
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+        button.layer.shadowOpacity = 0.25
+        button.layer.shadowRadius = 0.0
+        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
+        return button
+    }()
     
     lazy var estrelaAsset: UIImageView = {
         let estrelaView = UIImageView(image: UIImage (named: "estrela"))
@@ -115,6 +134,10 @@ class BeachView: UIView {
         delegate?.didTapCoconutAsset()
     }
     
+    @objc func tapSoundButtonAction(_ gesture: UITapGestureRecognizer) {
+        delegate?.tapSoundButtonAction()
+    }
+    
     override init(frame: CGRect) {
        super.init(frame: frame)
         self.addSubview(backgroundImageView)
@@ -124,6 +147,7 @@ class BeachView: UIView {
         self.addSubview(barcoAsset)
         self.addSubview(coconutAsset)
         self.addSubview(estrelaAsset)
+        self.addSubview(soundButton)
         
         configureContraints()
     }
@@ -168,6 +192,11 @@ class BeachView: UIView {
             self.estrelaAsset.heightAnchor.constraint(equalToConstant: 30),
             self.estrelaAsset.widthAnchor.constraint(equalToConstant: 30),
             self.estrelaAsset.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 160),
+            
+            self.soundButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
+            self.soundButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.soundButton.widthAnchor.constraint(equalToConstant: 40),
+            self.soundButton.heightAnchor.constraint(equalToConstant: 40),
             
         ])
     }

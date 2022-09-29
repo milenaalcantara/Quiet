@@ -12,6 +12,7 @@ class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
     private var duplicatePlayers = [AVAudioPlayer]()
     
+    private var isPlayingBackgroundSound = true
     private var isPlayingOcean = false
     private var isPlayingSun = false
     private var isPlayingCoconut = false
@@ -31,6 +32,17 @@ class BeachViewController: UIViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
+    func tapSoundButtonAction() {
+        if isPlayingBackgroundSound {
+            playSound(fileName: "ambient")
+            isPlayingBackgroundSound = false
+            playHaptics()
+        } else {
+            playSound(fileName: "ambient") // mudei
+            isPlayingBackgroundSound = true
+        }
+    }
+    
     func didTapOceanAsset() {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         playHaptics()
