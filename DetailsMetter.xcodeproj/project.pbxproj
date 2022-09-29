@@ -27,6 +27,8 @@
 		F3577F7D28DD5BE00098F93C /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7C28DD5BE00098F93C /* splash.json */; };
 		F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7E28DD60140098F93C /* starfish-aplash.json */; };
 		F3577F8128DD64B50098F93C /* 100073-medzen.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3577F8028DD64B50098F93C /* 100073-medzen.gif */; };
+		F3577F8B28E1E5A90098F93C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3577F8A28E1E5A90098F93C /* InfoView.swift */; };
+		F3577F8D28E1E5D70098F93C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3577F8C28E1E5D70098F93C /* InfoViewController.swift */; };
 		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
 		F38D206228CF5A380080ABEF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F38D206128CF5A380080ABEF /* Lottie */; };
 		F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */; };
@@ -75,6 +77,8 @@
 		F3577F7C28DD5BE00098F93C /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		F3577F7E28DD60140098F93C /* starfish-aplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "starfish-aplash.json"; sourceTree = "<group>"; };
 		F3577F8028DD64B50098F93C /* 100073-medzen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "100073-medzen.gif"; sourceTree = "<group>"; };
+		F3577F8A28E1E5A90098F93C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		F3577F8C28E1E5D70098F93C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
 		F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seanulo.mp3; sourceTree = "<group>"; };
 		F3CBCB9328D9FBCB00D69B50 /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				F300D74928C7CEB600AE0E9B /* LaunchScreen.storyboard */,
 				F38D205C28CB657D0080ABEF /* BeachView.swift */,
+				F3577F8A28E1E5A90098F93C /* InfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				F300D74228C7CEB600AE0E9B /* BeachViewController.swift */,
+				F3577F8C28E1E5D70098F93C /* InfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -363,7 +369,9 @@
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
+				F3577F8D28E1E5D70098F93C /* InfoViewController.swift in Sources */,
 				F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */,
+				F3577F8B28E1E5A90098F93C /* InfoView.swift in Sources */,
 				6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
