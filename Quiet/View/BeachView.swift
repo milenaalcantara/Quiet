@@ -26,24 +26,23 @@ class BeachView: UIView {
     
     var isPlaying = false
     
+    let soundOnImage: UIImage = {
+        let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
+        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)!.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        return icon
+    }()
+    
+    let soundOffImage: UIImage = {
+        let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
+        let icon = UIImage(systemName: "speaker", withConfiguration: iconConfig)!.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        return icon
+    }()
+    
     lazy var infoButton: UIButton = {
         let button = UIButton(type: .infoLight)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .darkGray
         button.addTarget(self, action: #selector(tapInfoButton), for: .touchUpInside)
-        
-//        button.backgroundColor = .white
-        
-//        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-//        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-//        button.layer.cornerRadius = 20
-//        button.layer.masksToBounds = false
-//        button.layer.shadowColor = UIColor.gray.cgColor
-//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-//        button.layer.shadowOpacity = 0.25
-//        button.layer.shadowRadius = 0.0
-
-        
         return button
     }()
     
@@ -52,17 +51,8 @@ class BeachView: UIView {
         let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.backgroundColor = .white
         button.setImage(icon, for: .normal)
-//        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-//        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-//        button.layer.cornerRadius = 20
-//        button.layer.masksToBounds = false
-//        button.layer.shadowColor = UIColor.gray.cgColor
-//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-//        button.layer.shadowOpacity = 0.25
-//        button.layer.shadowRadius = 0.0
-//        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -161,13 +151,9 @@ class BeachView: UIView {
         let isPlaying = delegate?.didTapSoundButton()
         
         if isPlaying! {
-            let icon = UIImage(systemName: "speaker")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
-            soundButton.backgroundColor = .white
-            soundButton.setImage(icon, for: .normal)
+            soundButton.setImage(soundOnImage, for: .normal)
         } else {
-            let icon = UIImage(systemName: "speaker.slash")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
-            soundButton.backgroundColor = .white
-            soundButton.setImage(icon, for: .normal)
+            soundButton.setImage(soundOffImage, for: .normal)
         }
     }
     
@@ -244,3 +230,17 @@ class BeachView: UIView {
         ])
     }
 }
+
+/*
+ *       button.backgroundColor = .white
+ * button.setImage(icon, for: .normal)
+//        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+//        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        button.layer.cornerRadius = 20
+//        button.layer.masksToBounds = false
+//        button.layer.shadowColor = UIColor.gray.cgColor
+//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+//        button.layer.shadowOpacity = 0.25
+//        button.layer.shadowRadius = 0.0
+//        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
+ */
