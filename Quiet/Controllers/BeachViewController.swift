@@ -32,7 +32,7 @@ class BeachViewController: UIViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
-    func tapSoundButtonAction() -> Bool {
+    func didTapSoundButton() -> Bool {
         if isPlayingBackgroundSound {
             playSound(fileName: "ambient")
             isPlayingBackgroundSound = false
@@ -78,6 +78,19 @@ extension BeachViewController: BeachViewDelegate {
             isPlayingCoconut = true
         }
         
+    }
+    
+    func didTapInfoButton() {
+        let infoViewController = InfoViewController()
+        let nav = UINavigationController(rootViewController: infoViewController)
+        
+        nav.modalPresentationStyle = .pageSheet
+        
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.large()]
+        }
+        
+        present(nav, animated: true, completion: nil)
     }
     
     func playHaptics() {

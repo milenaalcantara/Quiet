@@ -10,7 +10,8 @@ import AVFoundation
 import Lottie
 
 protocol BeachViewDelegate: AnyObject {
-    func tapSoundButtonAction() -> Bool
+    func didTapSoundButton() -> Bool
+    func didTapInfoButton()
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
@@ -25,21 +26,43 @@ class BeachView: UIView {
     
     var isPlaying = false
     
+    lazy var infoButton: UIButton = {
+        let button = UIButton(type: .infoLight)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .darkGray
+        button.addTarget(self, action: #selector(tapInfoButton), for: .touchUpInside)
+        
+//        button.backgroundColor = .white
+        
+//        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+//        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        button.layer.cornerRadius = 20
+//        button.layer.masksToBounds = false
+//        button.layer.shadowColor = UIColor.gray.cgColor
+//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+//        button.layer.shadowOpacity = 0.25
+//        button.layer.shadowRadius = 0.0
+
+        
+        return button
+    }()
+    
     lazy var soundButton: UIButton = {
-        let icon = UIImage(systemName: "speaker.slash")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
+        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .white
+//        button.backgroundColor = .white
         button.setImage(icon, for: .normal)
-        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        button.layer.cornerRadius = 20
-        button.layer.masksToBounds = false
-        button.layer.shadowColor = UIColor.gray.cgColor
-        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        button.layer.shadowOpacity = 0.25
-        button.layer.shadowRadius = 0.0
-        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
+//        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+//        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        button.layer.cornerRadius = 20
+//        button.layer.masksToBounds = false
+//        button.layer.shadowColor = UIColor.gray.cgColor
+//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+//        button.layer.shadowOpacity = 0.25
+//        button.layer.shadowRadius = 0.0
+//        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -135,7 +158,7 @@ class BeachView: UIView {
     }
     
     @objc func tapSoundButtonAction(_ gesture: UITapGestureRecognizer) {
-        let isPlaying = delegate?.tapSoundButtonAction()
+        let isPlaying = delegate?.didTapSoundButton()
         
         if isPlaying! {
             let icon = UIImage(systemName: "speaker")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
@@ -148,6 +171,10 @@ class BeachView: UIView {
         }
     }
     
+    @objc func tapInfoButton() {
+        delegate?.didTapInfoButton()
+    }
+    
     override init(frame: CGRect) {
        super.init(frame: frame)
         self.addSubview(backgroundImageView)
@@ -158,6 +185,7 @@ class BeachView: UIView {
         self.addSubview(coconutAsset)
         self.addSubview(estrelaAsset)
         self.addSubview(soundButton)
+        self.addSubview(infoButton)
         
         configureContraints()
     }
@@ -207,6 +235,11 @@ class BeachView: UIView {
             self.soundButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.soundButton.widthAnchor.constraint(equalToConstant: 40),
             self.soundButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            self.infoButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 76),
+            self.infoButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.infoButton.widthAnchor.constraint(equalToConstant: 40),
+            self.infoButton.heightAnchor.constraint(equalToConstant: 40),
             
         ])
     }
