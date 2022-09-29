@@ -10,7 +10,7 @@ import AVFoundation
 import Lottie
 
 protocol BeachViewDelegate: AnyObject {
-    func tapSoundButtonAction()
+    func tapSoundButtonAction() -> Bool
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
@@ -26,7 +26,7 @@ class BeachView: UIView {
     var isPlaying = false
     
     lazy var soundButton: UIButton = {
-        let icon = UIImage(systemName: "music.note")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        let icon = UIImage(systemName: "speaker.slash")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
@@ -135,7 +135,17 @@ class BeachView: UIView {
     }
     
     @objc func tapSoundButtonAction(_ gesture: UITapGestureRecognizer) {
-        delegate?.tapSoundButtonAction()
+        let isPlaying = delegate?.tapSoundButtonAction()
+        
+        if isPlaying! {
+            let icon = UIImage(systemName: "speaker")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+            soundButton.backgroundColor = .white
+            soundButton.setImage(icon, for: .normal)
+        } else {
+            let icon = UIImage(systemName: "speaker.slash")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+            soundButton.backgroundColor = .white
+            soundButton.setImage(icon, for: .normal)
+        }
     }
     
     override init(frame: CGRect) {

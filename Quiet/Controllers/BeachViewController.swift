@@ -32,7 +32,7 @@ class BeachViewController: UIViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
-    func tapSoundButtonAction() {
+    func tapSoundButtonAction() -> Bool {
         if isPlayingBackgroundSound {
             playSound(fileName: "ambient")
             isPlayingBackgroundSound = false
@@ -41,6 +41,8 @@ extension BeachViewController: BeachViewDelegate {
             playSound(fileName: "ambient") // mudei
             isPlayingBackgroundSound = true
         }
+        
+        return isPlayingBackgroundSound
     }
     
     func didTapOceanAsset() {
