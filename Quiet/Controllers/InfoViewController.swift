@@ -9,6 +9,12 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
+    private let infoView = InfoView()
+    
+    override func loadView() {
+        self.view = infoView
+    }
+    
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,28 +23,14 @@ class InfoViewController: UIViewController {
         
         return label
     }()
-    
-    var backgroundImage: UIImageView = {
-        let image = UIImage(named: "backgroundSheet")
-        let imageView = UIImageView(image: image)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(self.backgroundImage)
         view.addSubview(self.titleLabel)
 
         NSLayoutConstraint.activate([
             self.titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            self.backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
-            self.backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         // Do any additional setup after loading the view.
     }
