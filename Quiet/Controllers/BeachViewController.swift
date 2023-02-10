@@ -26,9 +26,26 @@ class BeachViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let elements = [beachView.barcoAsset]
+        breathAnimation(array: elements)
+        
         self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
     }
 }
+
+func breathAnimation(array: [UIImageView]) {
+    
+    for element in array {
+        UIView.animate(withDuration: 2, delay: 0, options: [.autoreverse], animations: {
+            UIView.setAnimationRepeatCount(.infinity)            // For 3 times repetition
+            element.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)    // 1.5 times its normal size
+        }){ (finished) in
+             element.transform = CGAffineTransform.identity
+        }
+    }
+
+     }
 
 extension BeachViewController: BeachViewDelegate {
     func didTapSoundButton() {

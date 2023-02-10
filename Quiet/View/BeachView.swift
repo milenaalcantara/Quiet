@@ -31,42 +31,22 @@ class BeachView: UIView {
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         return backgroundView
     }()
-
-    lazy var infoButton: UIButton = {
-        let infoButton = UIButton(type: .infoLight)
-        infoButton.translatesAutoresizingMaskIntoConstraints = false
-        infoButton.tintColor = .darkGray
-        infoButton.addTarget(self, action: #selector(didTapInfoButton), for: .touchUpInside)
-        return infoButton
+    
+    lazy var conchaAsset : UIImageView = {
+        let conchaView = UIImageView(image: UIImage(named: "concha"))
+        conchaView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return conchaView
     }()
-
-    lazy var soundButton: UIButton = {
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 18)
-        let symbol = UIImage(systemName: "speaker.slash",
-                             withConfiguration: symbolConfig)?.withTintColor(.black, renderingMode: .alwaysOriginal
-                             )
-
-        let soundButton = UIButton(type: .system)
-        soundButton.translatesAutoresizingMaskIntoConstraints = false
-        soundButton.setImage(symbol, for: .normal)
-        soundButton.addTarget(self, action: #selector(didTapSoundButton), for: .touchUpInside)
-        return soundButton
+    
+    lazy var barcoAsset : UIImageView = {
+        let barcoView = UIImageView(image: UIImage(named: "barco"))
+        barcoView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return barcoView
     }()
-
-    lazy var sunAsset: UIImageView = {
-       let sunAsset = UIImageView(image: UIImage(named: "sun"))
-        sunAsset.translatesAutoresizingMaskIntoConstraints = false
-
-        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapSunAsset(_:)))
-        tapPlayGesture.numberOfTapsRequired = 1
-        tapPlayGesture.numberOfTouchesRequired = 1
-
-        sunAsset.addGestureRecognizer(tapPlayGesture)
-        sunAsset.isUserInteractionEnabled = true
-
-        return sunAsset
-    }()
-
+    
+    
     lazy var oceanAsset: LottieAnimationView = {
         let oceanAsset: LottieAnimationView
         oceanAsset = .init(name: "ocean-gradient")
