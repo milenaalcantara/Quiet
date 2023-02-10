@@ -98,8 +98,8 @@ class BeachView: UIView {
         return barcoView
     }()
     
-    lazy var oceanAsset: AnimationView = {
-        let oceanView: AnimationView
+    lazy var oceanAsset: LottieAnimationView = {
+        let oceanView: LottieAnimationView
         oceanView = .init(name: "ocean-gradient")
         oceanView.loopMode = .loop
         oceanView.play()
@@ -116,8 +116,8 @@ class BeachView: UIView {
         return oceanView
     }()
     
-    lazy var coconutAsset: AnimationView = {
-        let coqueiroView: AnimationView
+    lazy var coconutAsset: LottieAnimationView = {
+        let coqueiroView: LottieAnimationView
         coqueiroView = .init(name: "coqueiro")
         coqueiroView.loopMode = .loop
         coqueiroView.play()
