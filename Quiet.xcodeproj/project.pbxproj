@@ -147,6 +147,7 @@
 		F300D73D28C7CEB600AE0E9B /* Quiet */ = {
 			isa = PBXGroup;
 			children = (
+				F31D4B20299682F800AD113A /* Manager */,
 				F38D206328CF61DA0080ABEF /* Resources */,
 				F300D77128C7CF8B00AE0E9B /* Controllers */,
 				F300D76F28C7CF7900AE0E9B /* View */,
@@ -192,6 +193,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F31D4B20299682F800AD113A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6426C63028D35D4F00F76D3C /* Haptics Manager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		F37F038E28E6023800558C29 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +214,6 @@
 			children = (
 				F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */,
 				F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */,
-				6426C63028D35D4F00F76D3C /* Haptics Manager.swift */,
 				F3CBCB9528D9FBCF00D69B50 /* Images */,
 				F3CBCB9028D9E9DD00D69B50 /* Sounds */,
 				F300D74728C7CEB600AE0E9B /* Assets.xcassets */,
@@ -570,7 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 35GM6XG62S;
+				DEVELOPMENT_TEAM = 2P65JA735T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -599,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 35GM6XG62S;
+				DEVELOPMENT_TEAM = 2P65JA735T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
