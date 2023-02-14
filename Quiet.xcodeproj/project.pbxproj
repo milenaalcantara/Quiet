@@ -23,6 +23,7 @@
 		F300D76028C7CEB700AE0E9B /* DetailsMetterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */; };
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
 		F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F30CD00128E480520039F2BE /* ocean-teste.mp3 */; };
+		F31D4B2229968ACC00AD113A /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D4B2129968ACC00AD113A /* HapticsManager.swift */; };
 		F3577F6B28DB565B0098F93C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F6A28DB565B0098F93C /* data.json */; };
 		F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7828DD4B7C0098F93C /* ocean-gradient.json */; };
 		F3577F7B28DD567C0098F93C /* beach-background.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7A28DD567C0098F93C /* beach-background.json */; };
@@ -75,6 +76,7 @@
 		F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITests.swift; sourceTree = "<group>"; };
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F30CD00128E480520039F2BE /* ocean-teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ocean-teste.mp3"; sourceTree = "<group>"; };
+		F31D4B2129968ACC00AD113A /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		F3577F6A28DB565B0098F93C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F3577F7828DD4B7C0098F93C /* ocean-gradient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ocean-gradient.json"; sourceTree = "<group>"; };
 		F3577F7A28DD567C0098F93C /* beach-background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "beach-background.json"; sourceTree = "<group>"; };
@@ -147,8 +149,8 @@
 		F300D73D28C7CEB600AE0E9B /* Quiet */ = {
 			isa = PBXGroup;
 			children = (
-				F31D4B20299682F800AD113A /* Manager */,
 				F38D206328CF61DA0080ABEF /* Resources */,
+				F31D4B20299682F800AD113A /* Manager */,
 				F300D77128C7CF8B00AE0E9B /* Controllers */,
 				F300D76F28C7CF7900AE0E9B /* View */,
 				F300D74C28C7CEB600AE0E9B /* Info.plist */,
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				6426C63028D35D4F00F76D3C /* Haptics Manager.swift */,
+				F31D4B2129968ACC00AD113A /* HapticsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F31D4B2229968ACC00AD113A /* HapticsManager.swift in Sources */,
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
