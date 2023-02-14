@@ -13,6 +13,7 @@
 		6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA828DCF8B900F1605E /* sea.mp3 */; };
 		6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFAA28DCF8E000F1605E /* wind.mp3 */; };
 		64D0538428D36079007FE75E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538328D36079007FE75E /* success.mp3 */; };
+		9537262A299BC64500875922 /* ViewCoding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95372629299BC64500875922 /* ViewCoding+.swift */; };
 		95DD2BFA2993CD0600E03E98 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 95DD2BF92993CD0600E03E98 /* Lottie */; };
 		F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */; };
 		F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */; };
@@ -63,6 +64,7 @@
 		6441CFA828DCF8B900F1605E /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
 		6441CFAA28DCF8E000F1605E /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		64D0538328D36079007FE75E /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
+		95372629299BC64500875922 /* ViewCoding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewCoding+.swift"; sourceTree = "<group>"; };
 		F300D73B28C7CEB600AE0E9B /* Quiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95372627299BC5A700875922 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				95372628299BC5BB00875922 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		95372628299BC5BB00875922 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				95372629299BC64500875922 /* ViewCoding+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		95DD2BF12993CB6200E03E98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +167,7 @@
 		F300D73D28C7CEB600AE0E9B /* Quiet */ = {
 			isa = PBXGroup;
 			children = (
+				95372627299BC5A700875922 /* Utils */,
 				F38D206328CF61DA0080ABEF /* Resources */,
 				F31D4B20299682F800AD113A /* Manager */,
 				F300D77128C7CF8B00AE0E9B /* Controllers */,
@@ -407,6 +426,7 @@
 				F31D4B2229968ACC00AD113A /* HapticsManager.swift in Sources */,
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */,
+				9537262A299BC64500875922 /* ViewCoding+.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
 				F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */,
 				F37F038B28E5DF8F00558C29 /* InfoViewController.swift in Sources */,
