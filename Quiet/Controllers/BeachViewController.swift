@@ -84,7 +84,7 @@ extension BeachViewController: BeachViewDelegate {
     }
     
     func playHaptics() {
-        HapticsManager.shared.vibrate(for: .success)
+        HapticsManager.shared.vibrateSelection()
     }
 }
 
