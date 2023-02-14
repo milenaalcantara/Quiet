@@ -5,13 +5,13 @@
 //  Created by Milena Lima de Alcântara on 08/09/22.
 //
 
-import UIKit
 import AVFoundation
 import Lottie
+import UIKit
 
 protocol BeachViewDelegate: AnyObject {
-    func didTapSoundButton() -> Bool
     func didTapInfoButton()
+    func didTapSoundButton()
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
@@ -36,7 +36,7 @@ class BeachView: UIView {
         let infoButton = UIButton(type: .infoLight)
         infoButton.translatesAutoresizingMaskIntoConstraints = false
         infoButton.tintColor = .darkGray
-        infoButton.addTarget(self, action: #selector(tapInfoButton), for: .touchUpInside)
+        infoButton.addTarget(self, action: #selector(didTapInfoButton), for: .touchUpInside)
         return infoButton
     }()
 
@@ -49,6 +49,7 @@ class BeachView: UIView {
         let soundButton = UIButton(type: .system)
         soundButton.translatesAutoresizingMaskIntoConstraints = false
         soundButton.setImage(symbol, for: .normal)
+        soundButton.addTarget(self, action: #selector(didTapSoundButton), for: .touchUpInside)
         return soundButton
     }()
 
@@ -56,7 +57,7 @@ class BeachView: UIView {
        let sunAsset = UIImageView(image: UIImage(named: "sun"))
         sunAsset.translatesAutoresizingMaskIntoConstraints = false
 
-        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(tapSunAction(_:)))
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapSunAsset(_:)))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
 
@@ -74,7 +75,7 @@ class BeachView: UIView {
         oceanAsset.contentMode = .scaleToFill
         oceanAsset.translatesAutoresizingMaskIntoConstraints = false
 
-        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(tapOceanAction(_:)))
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapOceanAsset(_:)))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
 
@@ -110,7 +111,7 @@ class BeachView: UIView {
         coconutTreeAsset.contentMode = .scaleToFill
         coconutTreeAsset.translatesAutoresizingMaskIntoConstraints = false
         
-        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(tapCoqueiroAction(_:)))
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCoconutTreeAsset(_:)))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
         
@@ -119,28 +120,34 @@ class BeachView: UIView {
         
         return coconutTreeAsset
     }()
-    
-    @objc func tapOceanAction(_ gesture: UITapGestureRecognizer) {
-        // coloca aqui irá acontecer quando o usuário clicar no elemento x
-        delegate?.didTapOceanAsset()
-    }
-        
-    @objc func tapSunAction(_ gesture: UITapGestureRecognizer) {
-        delegate?.didTapSunAsset()
-    }
-    
-    @objc func tapCoqueiroAction(_ gesture: UITapGestureRecognizer) {
-        delegate?.didTapCoconutAsset()
-    }
-    
-    @objc func tapInfoButton() {
-        delegate?.didTapInfoButton()
-    }
-
 
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         self.setupView()
+    }
+}
+
+extension BeachView {
+    @objc func didTapInfoButton() {
+        delegate?.didTapInfoButton()
+    }
+
+    @objc func didTapSoundButton(_ gesture: UITapGestureRecognizer) {
+        // coloca aqui irá acontecer quando o usuário clicar no elemento x
+        delegate?.didTapSoundButton()
+    }
+
+    @objc func didTapSunAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapSunAsset()
+    }
+
+    @objc func didTapOceanAsset(_ gesture: UITapGestureRecognizer) {
+        // coloca aqui irá acontecer quando o usuário clicar no elemento x
+        delegate?.didTapOceanAsset()
+    }
+
+    @objc func didTapCoconutTreeAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapCoconutAsset()
     }
 }
 
