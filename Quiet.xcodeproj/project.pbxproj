@@ -23,6 +23,7 @@
 		F300D76028C7CEB700AE0E9B /* DetailsMetterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */; };
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
 		F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F30CD00128E480520039F2BE /* ocean-teste.mp3 */; };
+		F31D4B2229968ACC00AD113A /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D4B2129968ACC00AD113A /* HapticsManager.swift */; };
 		F3577F6B28DB565B0098F93C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F6A28DB565B0098F93C /* data.json */; };
 		F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7828DD4B7C0098F93C /* ocean-gradient.json */; };
 		F3577F7B28DD567C0098F93C /* beach-background.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7A28DD567C0098F93C /* beach-background.json */; };
@@ -75,6 +76,7 @@
 		F300D75F28C7CEB700AE0E9B /* DetailsMetterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITests.swift; sourceTree = "<group>"; };
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F30CD00128E480520039F2BE /* ocean-teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ocean-teste.mp3"; sourceTree = "<group>"; };
+		F31D4B2129968ACC00AD113A /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		F3577F6A28DB565B0098F93C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F3577F7828DD4B7C0098F93C /* ocean-gradient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ocean-gradient.json"; sourceTree = "<group>"; };
 		F3577F7A28DD567C0098F93C /* beach-background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "beach-background.json"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F38D206328CF61DA0080ABEF /* Resources */,
+				F31D4B20299682F800AD113A /* Manager */,
 				F300D77128C7CF8B00AE0E9B /* Controllers */,
 				F300D76F28C7CF7900AE0E9B /* View */,
 				F300D74C28C7CEB600AE0E9B /* Info.plist */,
@@ -192,6 +195,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F31D4B20299682F800AD113A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6426C63028D35D4F00F76D3C /* Haptics Manager.swift */,
+				F31D4B2129968ACC00AD113A /* HapticsManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		F37F038E28E6023800558C29 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +217,6 @@
 			children = (
 				F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */,
 				F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */,
-				6426C63028D35D4F00F76D3C /* Haptics Manager.swift */,
 				F3CBCB9528D9FBCF00D69B50 /* Images */,
 				F3CBCB9028D9E9DD00D69B50 /* Sounds */,
 				F300D74728C7CEB600AE0E9B /* Assets.xcassets */,
@@ -393,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F31D4B2229968ACC00AD113A /* HapticsManager.swift in Sources */,
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */,
 				F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */,
@@ -570,7 +582,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 35GM6XG62S;
+				DEVELOPMENT_TEAM = 2P65JA735T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -599,7 +611,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 35GM6XG62S;
+				DEVELOPMENT_TEAM = 2P65JA735T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
