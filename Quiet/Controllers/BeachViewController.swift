@@ -11,7 +11,7 @@ import AVFoundation
 class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
     private var duplicatePlayers = [AVAudioPlayer]()
-    
+
     private var isPlayingBackgroundSound = true
     private var isPlayingOcean = false
     private var isPlayingSun = false
@@ -20,18 +20,26 @@ class BeachViewController: UIViewController {
     private let beachView = BeachView() // inicialização da view BeachView
     
     override func loadView() { // carrega a view criada programaticamente para ser mostrada
-        beachView.delegate = self
         self.view = beachView // atribuindo a BeachView a nossa view view controller para ser mostrada no app
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        beachView.delegate = self
         self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
+        playSound(fileName: "ambient")
+
     }
+
+
 }
 
 extension BeachViewController: BeachViewDelegate {
     func didTapSoundButton() {
+        playHaptics()
+        isPlayingBackgroundSound.toggle()
+        beachView.changeSymbolSoundOn(value: isPlayingBackgroundSound)
+        playSound(fileName: "ambient")
 
     }
     

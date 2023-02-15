@@ -128,6 +128,24 @@ class BeachView: UIView {
 }
 
 extension BeachView {
+    func changeSymbolSoundOn(value: Bool){
+        if value {
+            let symbolConfig = UIImage.SymbolConfiguration(pointSize: 18)
+            let symbol = UIImage(systemName: "speaker.slash",
+                                 withConfiguration: symbolConfig)?.withTintColor(.black, renderingMode: .alwaysOriginal
+                                 )
+            soundButton.setImage(symbol, for: .normal)
+        }
+        else {
+            let symbolConfig = UIImage.SymbolConfiguration(pointSize: 18)
+            let symbol = UIImage(systemName: "speaker",
+                                 withConfiguration: symbolConfig)?.withTintColor(.black, renderingMode: .alwaysOriginal
+                                 )
+
+            soundButton.setImage(symbol, for: .normal)
+        }
+    }
+
     @objc func didTapInfoButton() {
         delegate?.didTapInfoButton()
     }
