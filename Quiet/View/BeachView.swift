@@ -105,7 +105,7 @@ class BeachView: UIView {
 
     lazy var coconutTreeAsset: LottieAnimationView = {
         let coconutTreeAsset: LottieAnimationView
-        coconutTreeAsset = .init(name: "coqueiro")
+        coconutTreeAsset = .init(name: "coconutTreeAsset")
         coconutTreeAsset.loopMode = .loop
         coconutTreeAsset.play()
         coconutTreeAsset.contentMode = .scaleToFill

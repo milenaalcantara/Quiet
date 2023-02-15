@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6426C63128D35D4F00F76D3C /* Haptics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6426C63028D35D4F00F76D3C /* Haptics Manager.swift */; };
 		6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA428DC9D4000F1605E /* seagulls.mp3 */; };
-		6441CFA728DCF64500F1605E /* coqueiro.json in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA628DCF64500F1605E /* coqueiro.json */; };
+		6441CFA728DCF64500F1605E /* coconutTreeAsset.json in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA628DCF64500F1605E /* coconutTreeAsset.json */; };
 		6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFA828DCF8B900F1605E /* sea.mp3 */; };
 		6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFAA28DCF8E000F1605E /* wind.mp3 */; };
 		64D0538428D36079007FE75E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538328D36079007FE75E /* success.mp3 */; };
@@ -60,7 +60,7 @@
 /* Begin PBXFileReference section */
 		6426C63028D35D4F00F76D3C /* Haptics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptics Manager.swift"; sourceTree = "<group>"; };
 		6441CFA428DC9D4000F1605E /* seagulls.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seagulls.mp3; sourceTree = "<group>"; };
-		6441CFA628DCF64500F1605E /* coqueiro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coqueiro.json; sourceTree = "<group>"; };
+		6441CFA628DCF64500F1605E /* coconutTreeAsset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coconutTreeAsset.json; sourceTree = "<group>"; };
 		6441CFA828DCF8B900F1605E /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
 		6441CFAA28DCF8E000F1605E /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		64D0538328D36079007FE75E /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 				F3577F7A28DD567C0098F93C /* beach-background.json */,
 				F3577F7828DD4B7C0098F93C /* ocean-gradient.json */,
 				F3577F6A28DB565B0098F93C /* data.json */,
-				6441CFA628DCF64500F1605E /* coqueiro.json */,
+				6441CFA628DCF64500F1605E /* coconutTreeAsset.json */,
 				F3CBCB9328D9FBCB00D69B50 /* ocean.json */,
 			);
 			name = Images;
@@ -390,7 +390,7 @@
 				F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */,
 				F3577F7D28DD5BE00098F93C /* splash.json in Resources */,
 				F3577F8128DD64B50098F93C /* 100073-medzen.gif in Resources */,
-				6441CFA728DCF64500F1605E /* coqueiro.json in Resources */,
+				6441CFA728DCF64500F1605E /* coconutTreeAsset.json in Resources */,
 				6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */,
 				6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */,
 				64D0538428D36079007FE75E /* success.mp3 in Resources */,
