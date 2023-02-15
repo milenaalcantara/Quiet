@@ -46,36 +46,20 @@ extension BeachViewController: BeachViewDelegate {
     func didTapOceanAsset() {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         playHaptics()
-        if isPlayingOcean {
-            playSound(fileName: "ocean-teste")
-            isPlayingOcean = false
-        } else {
-            playSound(fileName: "ocean-teste")
-            isPlayingOcean = true
-        }
+        playSound(fileName: "ocean-teste")
+        isPlayingOcean.toggle()
     }
     
     func didTapSunAsset() {
         playHaptics()
-        if isPlayingSun {
-            playSound(fileName: "seagulls")
-            isPlayingSun = false
-        } else {
-            playSound(fileName: "seagulls")
-            isPlayingSun = true
-        }
+        playSound(fileName: "seagulls")
+        isPlayingSun.toggle()
     }
     
     func didTapCoconutAsset() {
-        if isPlayingCoconut {
-            playSound(fileName: "wind")
-            isPlayingCoconut = false
-            playHaptics()
-        } else {
-            playSound(fileName: "wind")
-            isPlayingCoconut = true
-        }
-        
+        playHaptics()
+        playSound(fileName: "wind")
+        isPlayingCoconut.toggle()
     }
     
     func didTapInfoButton() {
