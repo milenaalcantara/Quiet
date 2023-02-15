@@ -27,7 +27,7 @@ class BeachViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let elements = [beachView.barcoAsset]
+        let elements = [beachView.boatAsset]
         breathAnimation(array: elements)
         
         self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
