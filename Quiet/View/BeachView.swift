@@ -54,9 +54,9 @@ class BeachView: UIView {
     }()
 
     lazy var sunAsset: UIImageView = {
-       let sunAsset = UIImageView(image: UIImage(named: "sun"))
+        let image = UIImage(named: "sun")
+        let sunAsset = UIImageView(image: image)
         sunAsset.translatesAutoresizingMaskIntoConstraints = false
-
         let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapSunAsset(_:)))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
@@ -64,6 +64,15 @@ class BeachView: UIView {
         sunAsset.addGestureRecognizer(tapPlayGesture)
         sunAsset.isUserInteractionEnabled = true
 
+        return sunAsset
+    }()
+    
+    lazy var sunAssetWhite: UIImageView = {
+        let image = UIImage(named: "sun")?.withRenderingMode(.alwaysTemplate)
+        let sunAsset = UIImageView(image: image)
+        sunAsset.tintColor = UIColor.white
+        sunAsset.isHidden = false
+        sunAsset.translatesAutoresizingMaskIntoConstraints = false
         return sunAsset
     }()
 
@@ -90,16 +99,41 @@ class BeachView: UIView {
         starAsset.translatesAutoresizingMaskIntoConstraints = false
         return starAsset
     }()
+    
+    lazy var starAssetWhite: UIImageView = {
+        let starAsset = UIImageView(image: UIImage (named: "star")?.withRenderingMode(.alwaysTemplate))
+        starAsset.translatesAutoresizingMaskIntoConstraints = false
+        starAsset.tintColor = .white
+        starAsset.isHidden = false
+        return starAsset
+    }()
 
     lazy var boatAsset: UIImageView = {
         let boatAsset = UIImageView(image: UIImage(named: "boat"))
         boatAsset.translatesAutoresizingMaskIntoConstraints = false
         return boatAsset
     }()
+    
+    lazy var boatAssetWhite: UIImageView = {
+        let boatAsset = UIImageView(image: UIImage(named: "boat")?.withRenderingMode(.alwaysTemplate))
+        boatAsset.translatesAutoresizingMaskIntoConstraints = false
+        boatAsset.tintColor = .white
+        boatAsset.isHidden = false
+        return boatAsset
+    }()
+
 
     lazy var shellAsset: UIImageView = {
         let shellAsset = UIImageView(image: UIImage(named: "shell"))
         shellAsset.translatesAutoresizingMaskIntoConstraints = false
+        return shellAsset
+    }()
+    
+    lazy var shellAssetWhite: UIImageView = {
+        let shellAsset = UIImageView(image: UIImage(named: "shell")?.withRenderingMode(.alwaysTemplate))
+        shellAsset.translatesAutoresizingMaskIntoConstraints = false
+        shellAsset.tintColor = .white
+        shellAsset.isHidden = false
         return shellAsset
     }()
 
@@ -121,6 +155,7 @@ class BeachView: UIView {
         return coconutTreeAsset
     }()
 
+    
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         self.setupView()
@@ -155,10 +190,14 @@ extension BeachView: ViewCodingProtocol {
     func setupHierarchy() {
         addSubview(backgroundImageView)
         addSubview(oceanAsset)
+        addSubview(sunAssetWhite)
         addSubview(sunAsset)
+        addSubview(shellAssetWhite)
         addSubview(shellAsset)
+        addSubview(boatAssetWhite)
         addSubview(boatAsset)
         addSubview(coconutTreeAsset)
+        addSubview(starAssetWhite)
         addSubview(starAsset)
         addSubview(infoButton)
         addSubview(soundButton)
@@ -224,6 +263,13 @@ private extension BeachView {
             sunAsset.heightAnchor.constraint(equalToConstant: 140),
             sunAsset.widthAnchor.constraint(equalToConstant: 150),
             sunAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            sunAssetWhite.centerYAnchor.constraint(equalTo: sunAsset.centerYAnchor),
+            sunAssetWhite.centerXAnchor.constraint(equalTo: sunAsset.centerXAnchor),
+            sunAssetWhite.heightAnchor.constraint(equalToConstant: 140),
+            sunAssetWhite.widthAnchor.constraint(equalToConstant: 150),
+            
+            
         ])
     }
 
@@ -232,6 +278,11 @@ private extension BeachView {
             shellAsset.heightAnchor.constraint(equalToConstant: 30),
             shellAsset.widthAnchor.constraint(equalToConstant: 30),
             shellAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            
+            shellAssetWhite.centerYAnchor.constraint(equalTo: shellAsset.centerYAnchor),
+            shellAssetWhite.centerXAnchor.constraint(equalTo: shellAsset.centerXAnchor),
+            shellAssetWhite.heightAnchor.constraint(equalToConstant: 33),
+            shellAssetWhite.widthAnchor.constraint(equalToConstant: 33),
             ])
     }
 
@@ -241,6 +292,11 @@ private extension BeachView {
             boatAsset.heightAnchor.constraint(equalToConstant: 80),
             boatAsset.widthAnchor.constraint(equalToConstant: 80),
             boatAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            
+            boatAssetWhite.centerYAnchor.constraint(equalTo: boatAsset.centerYAnchor),
+            boatAssetWhite.centerXAnchor.constraint(equalTo: boatAsset.centerXAnchor),
+            boatAssetWhite.heightAnchor.constraint(equalToConstant: 82),
+            boatAssetWhite.widthAnchor.constraint(equalToConstant: 82),
         ])
     }
 
@@ -257,7 +313,12 @@ private extension BeachView {
         NSLayoutConstraint.activate([
         starAsset.heightAnchor.constraint(equalToConstant: 30),
         starAsset.widthAnchor.constraint(equalToConstant: 30),
-        starAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 160)
+        starAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 160),
+        
+        starAssetWhite.centerYAnchor.constraint(equalTo: starAsset.centerYAnchor),
+        starAssetWhite.centerXAnchor.constraint(equalTo: starAsset.centerXAnchor),
+        starAssetWhite.heightAnchor.constraint(equalToConstant: 33),
+        starAssetWhite.widthAnchor.constraint(equalToConstant: 33),
         ])
 
     }

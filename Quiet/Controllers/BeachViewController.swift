@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Lottie
 
 class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
@@ -26,26 +27,33 @@ class BeachViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let elements = [beachView.boatAsset]
-        breathAnimation(array: elements)
+
+        let imageElements = [
+            beachView.sunAssetWhite, beachView.boatAssetWhite, beachView.starAssetWhite, beachView.shellAssetWhite
+        ]
+        breathAnimation(images: imageElements)
         
         self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
     }
 }
 
-func breathAnimation(array: [UIImageView]) {
+
+
+extension BeachViewController {
     
-    for element in array {
-        UIView.animate(withDuration: 2, delay: 0, options: [.autoreverse], animations: {
-            UIView.setAnimationRepeatCount(.infinity)            // For 3 times repetition
-            element.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)    // 1.5 times its normal size
-        }){ (finished) in
-             element.transform = CGAffineTransform.identity
+    func breathAnimation(images: [UIImageView]) {
+        for element in images {
+            UIView.animate(withDuration: 2, delay: 0, options: [.autoreverse], animations: {
+                UIView.setAnimationRepeatCount(.infinity)
+                element.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)    // 1.5 times its normal size
+                element.isHidden = false
+            }){ (finished) in
+                element.transform = CGAffineTransform.identity
+            }
         }
     }
-
-     }
+    
+}
 
 extension BeachViewController: BeachViewDelegate {
     func didTapSoundButton() {
