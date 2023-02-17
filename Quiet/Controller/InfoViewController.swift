@@ -13,22 +13,26 @@ class InfoViewController: UIViewController {
     
     override func loadView() {
         self.view = infoView
+        title = "Sobre o Quiet"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configureNavigationBarItem()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureNavigationBarItem() {
+        let dismissButton = UIBarButtonItem(
+            image: UIImage(systemName: "xmark.circle"),
+            style: .done,
+            target: self,
+            action: #selector(didTapDismissButton))
+        dismissButton.tintColor = .darkGray
+        self.navigationItem.rightBarButtonItem = dismissButton
     }
-    */
+    
+    @objc func didTapDismissButton() {
+        dismiss(animated: true)
+    }
 
 }
