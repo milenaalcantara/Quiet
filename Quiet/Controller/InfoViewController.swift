@@ -14,24 +14,9 @@ class InfoViewController: UIViewController {
     override func loadView() {
         self.view = infoView
     }
-    
-    var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "aqui será o conteúdo"
-        label.textColor = .darkGray
-        
-        return label
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(self.titleLabel)
-
-        NSLayoutConstraint.activate([
-            self.titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
         // Do any additional setup after loading the view.
     }
     

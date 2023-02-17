@@ -11,28 +11,35 @@ class InfoView: UIView {
     lazy var backgroundImage: UIImageView = {
         let image = UIImage(named: "backgroundSheet")
         let imageView = UIImageView(image: image)
-        
+
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Sobre o Quiet"
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 16)
         
-        self.addSubview(backgroundImage)
-    }
+        return label
+    }()
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func layoutSubviews() {
+        self.addSubview(backgroundImage)
+        self.addSubview(titleLabel)
+        configureConstraints()
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            self.backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),
-            self.backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.backgroundImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
-    
 }
