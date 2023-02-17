@@ -168,7 +168,7 @@
 				95372627299BC5A700875922 /* Utils */,
 				F38D206328CF61DA0080ABEF /* Resources */,
 				F31D4B20299682F800AD113A /* Manager */,
-				F300D77128C7CF8B00AE0E9B /* Controllers */,
+				F300D77128C7CF8B00AE0E9B /* Controller */,
 				F300D76F28C7CF7900AE0E9B /* View */,
 				F300D74C28C7CEB600AE0E9B /* Info.plist */,
 			);
@@ -203,13 +203,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F300D77128C7CF8B00AE0E9B /* Controllers */ = {
+		F300D77128C7CF8B00AE0E9B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				F300D74228C7CEB600AE0E9B /* BeachViewController.swift */,
 				F37F038A28E5DF8F00558C29 /* InfoViewController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F31D4B20299682F800AD113A /* Manager */ = {
