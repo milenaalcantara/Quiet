@@ -56,6 +56,27 @@ extension BeachViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
+    func didTapStarAsset() {
+        showLottieElement(lottie: self.beachView.explosionAsset, trigger: self.beachView.starAssetWhite)
+    }
+    
+    func didTapShellAsset() {
+        showLottieElement(lottie: self.beachView.musicAsset, trigger: self.beachView.shellAssetWhite)
+    }
+    
+    func didTapBoatAsset() {
+        showLottieElement(lottie: self.beachView.windAnimation, trigger: self.beachView.boatAssetWhite)
+    }
+    
+    func showLottieElement(lottie: LottieAnimationView, trigger: UIImageView) {
+        lottie.isHidden = false
+        trigger.isHidden = true
+        lottie.play { _ in
+            lottie.isHidden = true
+            trigger.isHidden = false
+        }
+    }
+    
     func didTapSoundButton() {
 
     }

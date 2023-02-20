@@ -38,6 +38,9 @@
 		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
 		F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */; };
 		F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9328D9FBCB00D69B50 /* ocean.json */; };
+		F81E390629A2F07800983267 /* music.json in Resources */ = {isa = PBXBuildFile; fileRef = F81E390529A2F07800983267 /* music.json */; };
+		F81E390C29A2FB7300983267 /* explosion.json in Resources */ = {isa = PBXBuildFile; fileRef = F81E390B29A2FB7300983267 /* explosion.json */; };
+		F87F3D80299FA84200E33907 /* wind.json in Resources */ = {isa = PBXBuildFile; fileRef = F87F3D7F299FA84200E33907 /* wind.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
 		F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seanulo.mp3; sourceTree = "<group>"; };
 		F3CBCB9328D9FBCB00D69B50 /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
+		F81E390529A2F07800983267 /* music.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music.json; sourceTree = "<group>"; };
+		F81E390B29A2FB7300983267 /* explosion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = explosion.json; sourceTree = "<group>"; };
+		F87F3D7F299FA84200E33907 /* wind.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wind.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +266,9 @@
 		F3CBCB9528D9FBCF00D69B50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F81E390B29A2FB7300983267 /* explosion.json */,
+				F81E390529A2F07800983267 /* music.json */,
+				F87F3D7F299FA84200E33907 /* wind.json */,
 				F3577F8028DD64B50098F93C /* 100073-medzen.gif */,
 				F3577F7E28DD60140098F93C /* starfish-aplash.json */,
 				F3577F7C28DD5BE00098F93C /* splash.json */,
@@ -385,6 +394,7 @@
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
 				F3577F7B28DD567C0098F93C /* beach-background.json in Resources */,
 				6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */,
+				F81E390629A2F07800983267 /* music.json in Resources */,
 				F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */,
 				F3577F6B28DB565B0098F93C /* data.json in Resources */,
 				F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */,
@@ -395,9 +405,11 @@
 				6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */,
 				64D0538428D36079007FE75E /* success.mp3 in Resources */,
 				F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */,
+				F87F3D80299FA84200E33907 /* wind.json in Resources */,
 				F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */,
 				F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
+				F81E390C29A2FB7300983267 /* explosion.json in Resources */,
 				F37F038928E5CA6600558C29 /* ambient.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

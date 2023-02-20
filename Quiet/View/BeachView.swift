@@ -15,6 +15,9 @@ protocol BeachViewDelegate: AnyObject {
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
+    func didTapBoatAsset()
+    func didTapStarAsset()
+    func didTapShellAsset()
 }
 
 class BeachView: UIView {
@@ -97,6 +100,14 @@ class BeachView: UIView {
     lazy var starAsset: UIImageView = {
         let starAsset = UIImageView(image: UIImage (named: "star"))
         starAsset.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapStarAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        
+        starAsset.addGestureRecognizer(tapPlayGesture)
+        starAsset.isUserInteractionEnabled = true
+        
         return starAsset
     }()
     
@@ -107,18 +118,47 @@ class BeachView: UIView {
         starAsset.isHidden = false
         return starAsset
     }()
+    
+    lazy var explosionAsset : LottieAnimationView = {
+        let explosionAsset: LottieAnimationView
+        explosionAsset = .init(name: "explosion")
+        explosionAsset.loopMode = .playOnce
+        explosionAsset.play()
+        explosionAsset.contentMode = .scaleToFill
+        explosionAsset.translatesAutoresizingMaskIntoConstraints = false
+        explosionAsset.isHidden = true
+        return explosionAsset
+    }()
 
     lazy var boatAsset: UIImageView = {
         let boatAsset = UIImageView(image: UIImage(named: "boat"))
         boatAsset.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapBoatAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        
+        boatAsset.addGestureRecognizer(tapPlayGesture)
+        boatAsset.isUserInteractionEnabled = true
+        
         return boatAsset
+    }()
+    
+    lazy var windAnimation: LottieAnimationView = {
+        let windAsset: LottieAnimationView
+        windAsset = .init(name: "wind")
+        windAsset.loopMode = .playOnce
+        windAsset.play()
+        windAsset.contentMode = .scaleToFill
+        windAsset.translatesAutoresizingMaskIntoConstraints = false
+        windAsset.isHidden = true
+        return windAsset
     }()
     
     lazy var boatAssetWhite: UIImageView = {
         let boatAsset = UIImageView(image: UIImage(named: "boat")?.withRenderingMode(.alwaysTemplate))
         boatAsset.translatesAutoresizingMaskIntoConstraints = false
         boatAsset.tintColor = .white
-        boatAsset.isHidden = false
         return boatAsset
     }()
 
@@ -126,6 +166,14 @@ class BeachView: UIView {
     lazy var shellAsset: UIImageView = {
         let shellAsset = UIImageView(image: UIImage(named: "shell"))
         shellAsset.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapShellAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        
+        shellAsset.addGestureRecognizer(tapPlayGesture)
+        shellAsset.isUserInteractionEnabled = true
+        
         return shellAsset
     }()
     
@@ -135,6 +183,17 @@ class BeachView: UIView {
         shellAsset.tintColor = .white
         shellAsset.isHidden = false
         return shellAsset
+    }()
+    
+    lazy var musicAsset : LottieAnimationView = {
+        let musicAsset: LottieAnimationView
+        musicAsset = .init(name: "music")
+        musicAsset.loopMode = .playOnce
+        musicAsset.play()
+        musicAsset.contentMode = .scaleToFill
+        musicAsset.translatesAutoresizingMaskIntoConstraints = false
+        musicAsset.isHidden = true
+        return musicAsset
     }()
 
     lazy var coconutTreeAsset: LottieAnimationView = {
@@ -184,6 +243,18 @@ extension BeachView {
     @objc func didTapCoconutTreeAsset(_ gesture: UITapGestureRecognizer) {
         delegate?.didTapCoconutAsset()
     }
+    
+    @objc func didTapBoatAsset (_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapBoatAsset()
+    }
+    
+    @objc func didTapStarAsset (_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapStarAsset()
+    }
+    
+    @objc func didTapShellAsset (_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapShellAsset()
+    }
 }
 
 extension BeachView: ViewCodingProtocol {
@@ -196,11 +267,14 @@ extension BeachView: ViewCodingProtocol {
         addSubview(shellAsset)
         addSubview(boatAssetWhite)
         addSubview(boatAsset)
+        addSubview(windAnimation)
         addSubview(coconutTreeAsset)
         addSubview(starAssetWhite)
         addSubview(starAsset)
         addSubview(infoButton)
         addSubview(soundButton)
+        addSubview(musicAsset)
+        addSubview(explosionAsset)
     }
 
     func setupConstraints() {
@@ -209,10 +283,13 @@ extension BeachView: ViewCodingProtocol {
         sunAssetConstraints()
         shellAssetConstrainst()
         boatAssetConstraints()
+        windAssetConstraints()
         coconutTreeAssetConstraints()
         starAssetConstraints()
         infoButtonConstraints()
         soundButtonConstraints()
+        musicAssetConstraints()
+        explosionAssetConstraints()
     }
 }
 
@@ -295,8 +372,17 @@ private extension BeachView {
             
             boatAssetWhite.centerYAnchor.constraint(equalTo: boatAsset.centerYAnchor),
             boatAssetWhite.centerXAnchor.constraint(equalTo: boatAsset.centerXAnchor),
-            boatAssetWhite.heightAnchor.constraint(equalToConstant: 82),
-            boatAssetWhite.widthAnchor.constraint(equalToConstant: 82),
+            boatAssetWhite.heightAnchor.constraint(equalToConstant: 81),
+            boatAssetWhite.widthAnchor.constraint(equalToConstant: 81),
+        ])
+    }
+    
+    func windAssetConstraints() {
+        NSLayoutConstraint.activate([
+            windAnimation.centerYAnchor.constraint(equalTo: boatAsset.centerYAnchor),
+            windAnimation.leadingAnchor.constraint(equalTo: boatAsset.leadingAnchor, constant: -30),
+            windAnimation.heightAnchor.constraint(equalToConstant: 70),
+            windAnimation.widthAnchor.constraint(equalToConstant: 70)
         ])
     }
 
@@ -321,5 +407,23 @@ private extension BeachView {
         starAssetWhite.widthAnchor.constraint(equalToConstant: 33),
         ])
 
+    }
+    
+    func explosionAssetConstraints() {
+        NSLayoutConstraint.activate([
+            explosionAsset.topAnchor.constraint(equalTo: backgroundImageView.topAnchor, constant: 625),
+            explosionAsset.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 120),
+            explosionAsset.heightAnchor.constraint(equalToConstant: 100),
+            explosionAsset.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
+    func musicAssetConstraints() {
+        NSLayoutConstraint.activate([
+            musicAsset.topAnchor.constraint(equalTo: shellAsset.bottomAnchor, constant: -105),
+            musicAsset.leadingAnchor.constraint(equalTo: shellAsset.leadingAnchor, constant: -10),
+            musicAsset.heightAnchor.constraint(equalToConstant: 80),
+            musicAsset.widthAnchor.constraint(equalToConstant: 80)
+        ])
     }
 }
