@@ -78,6 +78,18 @@ class BeachView: UIView {
         sunAsset.translatesAutoresizingMaskIntoConstraints = false
         return sunAsset
     }()
+    
+    lazy var seagullAsset : LottieAnimationView = {
+        let seagullAsset: LottieAnimationView
+        seagullAsset = .init(name: "seagulls")
+        seagullAsset.loopMode = .playOnce
+        seagullAsset.play()
+        seagullAsset.contentMode = .scaleToFill
+        seagullAsset.translatesAutoresizingMaskIntoConstraints = false
+        seagullAsset.isHidden = true
+        return seagullAsset
+    }()
+
 
     lazy var oceanAsset: LottieAnimationView = {
         let oceanAsset: LottieAnimationView
@@ -275,6 +287,7 @@ extension BeachView: ViewCodingProtocol {
         addSubview(soundButton)
         addSubview(musicAsset)
         addSubview(explosionAsset)
+        addSubview(seagullAsset)
     }
 
     func setupConstraints() {
@@ -290,6 +303,7 @@ extension BeachView: ViewCodingProtocol {
         soundButtonConstraints()
         musicAssetConstraints()
         explosionAssetConstraints()
+        seagullAssetConstraints()
     }
 }
 
@@ -424,6 +438,15 @@ private extension BeachView {
             musicAsset.leadingAnchor.constraint(equalTo: shellAsset.leadingAnchor, constant: -10),
             musicAsset.heightAnchor.constraint(equalToConstant: 80),
             musicAsset.widthAnchor.constraint(equalToConstant: 80)
+        ])
+    }
+    
+    func seagullAssetConstraints() {
+        NSLayoutConstraint.activate([
+            seagullAsset.topAnchor.constraint(equalTo: backgroundImageView.topAnchor, constant: 100),
+            seagullAsset.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 120),
+            seagullAsset.heightAnchor.constraint(equalToConstant: 200),
+            seagullAsset.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

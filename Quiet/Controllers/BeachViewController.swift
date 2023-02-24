@@ -94,6 +94,8 @@ extension BeachViewController: BeachViewDelegate {
     }
     
     func didTapSunAsset() {
+        showLottieElement(lottie: self.beachView.seagullAsset, trigger: self.beachView.sunAssetWhite)
+    
         playHaptics()
         if isPlayingSun {
             playSound(fileName: "seagulls")

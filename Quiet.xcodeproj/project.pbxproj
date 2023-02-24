@@ -40,6 +40,7 @@
 		F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9328D9FBCB00D69B50 /* ocean.json */; };
 		F81E390629A2F07800983267 /* music.json in Resources */ = {isa = PBXBuildFile; fileRef = F81E390529A2F07800983267 /* music.json */; };
 		F81E390C29A2FB7300983267 /* explosion.json in Resources */ = {isa = PBXBuildFile; fileRef = F81E390B29A2FB7300983267 /* explosion.json */; };
+		F81E390E29A3062A00983267 /* seagulls.json in Resources */ = {isa = PBXBuildFile; fileRef = F81E390D29A3062A00983267 /* seagulls.json */; };
 		F87F3D80299FA84200E33907 /* wind.json in Resources */ = {isa = PBXBuildFile; fileRef = F87F3D7F299FA84200E33907 /* wind.json */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		F3CBCB9328D9FBCB00D69B50 /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
 		F81E390529A2F07800983267 /* music.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music.json; sourceTree = "<group>"; };
 		F81E390B29A2FB7300983267 /* explosion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = explosion.json; sourceTree = "<group>"; };
+		F81E390D29A3062A00983267 /* seagulls.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seagulls.json; sourceTree = "<group>"; };
 		F87F3D7F299FA84200E33907 /* wind.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wind.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 		F3CBCB9528D9FBCF00D69B50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F81E390D29A3062A00983267 /* seagulls.json */,
 				F81E390B29A2FB7300983267 /* explosion.json */,
 				F81E390529A2F07800983267 /* music.json */,
 				F87F3D7F299FA84200E33907 /* wind.json */,
@@ -411,6 +414,7 @@
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
 				F81E390C29A2FB7300983267 /* explosion.json in Resources */,
 				F37F038928E5CA6600558C29 /* ambient.mp3 in Resources */,
+				F81E390E29A3062A00983267 /* seagulls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
