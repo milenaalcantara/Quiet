@@ -37,20 +37,39 @@ class BeachView: UIView {
         infoButton.translatesAutoresizingMaskIntoConstraints = false
         infoButton.tintColor = .darkGray
         infoButton.addTarget(self, action: #selector(didTapInfoButton), for: .touchUpInside)
+        button.isAccessibilityElement = true
+        button.accessibilityTraits = .button
+        button.accessibilityLabel = "Tutorial do aplicativo"
+        button.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        button.accessibilityHint = "tutorial"
         return infoButton
     }()
 
     lazy var soundButton: UIButton = {
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 18)
-        let symbol = UIImage(systemName: "speaker.slash",
-                             withConfiguration: symbolConfig)?.withTintColor(.black, renderingMode: .alwaysOriginal
-                             )
-
-        let soundButton = UIButton(type: .system)
-        soundButton.translatesAutoresizingMaskIntoConstraints = false
-        soundButton.setImage(symbol, for: .normal)
-        soundButton.addTarget(self, action: #selector(didTapSoundButton), for: .touchUpInside)
-        return soundButton
+        let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
+        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(icon, for: .normal)
+        button.addTarget(self, action: #selector(tapSoundButtonAction), for: .touchUpInside)
+        button.isAccessibilityElement = true
+        button.accessibilityTraits = .button
+        button.accessibilityLabel = "Som ambiente"
+        button.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        button.accessibilityHint = "clique duas vezes para som ambiente"
+        
+        return button
+    }()
+    
+    lazy var estrelaAsset: UIImageView = {
+        let estrelaView = UIImageView(image: UIImage (named: "estrela"))
+        estrelaView.translatesAutoresizingMaskIntoConstraints = false
+        estrelaView.isAccessibilityElement = true
+        estrelaView.accessibilityTraits = .button
+        estrelaView.accessibilityLabel = "Sem som"
+        estrelaView.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        estrelaView.accessibilityHint = "sem som"
+        return estrelaView
     }()
 
     lazy var sunAsset: UIImageView = {
@@ -64,30 +83,44 @@ class BeachView: UIView {
         sunAsset.addGestureRecognizer(tapPlayGesture)
         sunAsset.isUserInteractionEnabled = true
 
+        solView.isAccessibilityElement = true
+        solView.accessibilityTraits = .button
+        solView.accessibilityLabel = "Som Gaivotas"
+        solView.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        solView.accessibilityHint = "clique duas vezes para som de gaivotas"
+        
         return sunAsset
     }()
+    
+    lazy var backgroundImageView: UIImageView = {
+        let backgroundImage = UIImage(named: "background222")
+        let backgroundView = UIImageView(image: backgroundImage)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+    
+        return backgroundView
+    }()
+    
+    lazy var conchaAsset : UIImageView = {
+        let conchaView = UIImageView(image: UIImage(named: "concha"))
+        conchaView.translatesAutoresizingMaskIntoConstraints = false
+        conchaView.isAccessibilityElement = true
+        conchaView.accessibilityTraits = .button
+        conchaView.accessibilityLabel = "Sem som"
+        conchaView.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        conchaView.accessibilityHint = "sem som"
 
-    lazy var oceanAsset: LottieAnimationView = {
-        let oceanAsset: LottieAnimationView
-        oceanAsset = .init(name: "ocean-gradient")
-        oceanAsset.loopMode = .loop
-        oceanAsset.play()
-        oceanAsset.contentMode = .scaleToFill
-        oceanAsset.translatesAutoresizingMaskIntoConstraints = false
-
-        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapOceanAsset(_:)))
-        tapPlayGesture.numberOfTapsRequired = 1
-        tapPlayGesture.numberOfTouchesRequired = 1
-
-        oceanAsset.addGestureRecognizer(tapPlayGesture)
-        oceanAsset.isUserInteractionEnabled = true
-
-        return oceanAsset
+        return conchaView
     }()
 
     lazy var starAsset: UIImageView = {
         let starAsset = UIImageView(image: UIImage (named: "star"))
         starAsset.translatesAutoresizingMaskIntoConstraints = false
+        barcoView.isAccessibilityElement = true
+        barcoView.accessibilityTraits = .button
+        barcoView.accessibilityLabel = "Sem som"
+        barcoView.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        barcoView.accessibilityHint = "sem som"
+        
         return starAsset
     }()
 
@@ -118,6 +151,13 @@ class BeachView: UIView {
         coconutTreeAsset.addGestureRecognizer(tapPlayGesture)
         coconutTreeAsset.isUserInteractionEnabled = true
         
+        oceanView.isAccessibilityElement = true
+        oceanView.accessibilityTraits = .button
+        oceanView.accessibilityLabel = "Som de ondas"
+        oceanView.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        oceanView.accessibilityHint = "clique duas vezes para som de ondas"
+        
+        
         return coconutTreeAsset
     }()
 
@@ -137,6 +177,13 @@ extension BeachView {
         delegate?.didTapSoundButton()
     }
 
+        coqueiroView.isAccessibilityElement = true
+        coqueiroView.accessibilityTraits = .button
+        coqueiroView.accessibilityLabel = "Sem som"
+        coqueiroView.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        coqueiroView.accessibilityHint = "sem som"
+        
+        
     @objc func didTapSunAsset(_ gesture: UITapGestureRecognizer) {
         delegate?.didTapSunAsset()
     }
@@ -144,6 +191,16 @@ extension BeachView {
     @objc func didTapOceanAsset(_ gesture: UITapGestureRecognizer) {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         delegate?.didTapOceanAsset()
+        
+        infoButton.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        soundButton.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        estrelaAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        sunAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        conchaAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        barcoAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        oceanAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        coconutAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        
     }
 
     @objc func didTapCoconutTreeAsset(_ gesture: UITapGestureRecognizer) {
