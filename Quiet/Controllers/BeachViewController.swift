@@ -26,23 +26,13 @@ class BeachViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
     }
 }
 
 extension BeachViewController: BeachViewDelegate {
-    func didTapSoundButton() -> Bool {
-        if isPlayingBackgroundSound {
-            playSound(fileName: "ambient")
-            isPlayingBackgroundSound = false
-            playHaptics()
-        } else {
-            playSound(fileName: "ambient") // mudei
-            isPlayingBackgroundSound = true
-        }
-        
-        return isPlayingBackgroundSound
+    func didTapSoundButton() {
+
     }
     
     func didTapOceanAsset() {
@@ -94,7 +84,7 @@ extension BeachViewController: BeachViewDelegate {
     }
     
     func playHaptics() {
-        HapticsManager.shared.vibrate(for: .success)
+        HapticsManager.shared.vibrateSelection()
     }
 }
 
