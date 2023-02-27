@@ -8,6 +8,7 @@
 import AVFoundation
 import Lottie
 import UIKit
+import SpriteKit
 
 protocol BeachViewDelegate: AnyObject {
     func didTapInfoButton()
@@ -115,27 +116,21 @@ class BeachView: UIView {
         return boatAsset
     }()
 
-    lazy var coconutTreeAsset: LottieAnimationView = {
-        let coconutTreeAsset: LottieAnimationView
-        coconutTreeAsset = .init(name: "coqueiro")
-        coconutTreeAsset.loopMode = .loop
-        coconutTreeAsset.play()
-        coconutTreeAsset.contentMode = .scaleToFill
+    lazy var coconutTreeAsset: SKView = {
+        let coconutTreeAsset = SKView()
+        coconutTreeAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .treeBreath)
+        scene.addChild(no)
+//        scene.run(no.animationBreath.action)
+        coconutTreeAsset.presentScene(scene)
         coconutTreeAsset.translatesAutoresizingMaskIntoConstraints = false
-
         let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCoconutTreeAsset(_:)))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
         coconutTreeAsset.addGestureRecognizer(tapPlayGesture)
         coconutTreeAsset.isUserInteractionEnabled = true
-
-        coconutTreeAsset.accessibilityTraits = .button
-        coconutTreeAsset.accessibilityLabel = "Coqueiro"
-        coconutTreeAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        coconutTreeAsset.accessibilityHint = "clique duas vezes para som de vento"
-
-        // coconut voice
-
         return coconutTreeAsset
     }()
 
@@ -290,7 +285,7 @@ private extension BeachView {
     func coconutTreeAssetConstraints() {
         NSLayoutConstraint.activate([
             coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30),
-            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
+            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25),
             coconutTreeAsset.centerXAnchor.constraint(equalTo: sunAsset.centerXAnchor),
             coconutTreeAsset.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: frame.height * -0.06)
         ])

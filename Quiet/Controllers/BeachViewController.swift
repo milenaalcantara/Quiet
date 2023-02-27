@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
 class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
@@ -26,7 +27,7 @@ class BeachViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
+        self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo         
     }
 }
 
