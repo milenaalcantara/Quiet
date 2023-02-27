@@ -12,12 +12,11 @@ enum Animation {
     func getModel() -> ([SKTexture], SKAction) {
         switch self {
         case .treeBreath:
-            let animation = AnimationStruct(nameTextureAtlas: "Tree_breath", prefixNameFiles: "Tree_breath_")
-            let repeate = SKAction.repeatForever(animation.action)
-            return (animation.textures, repeate)
-        case .treeOn:
-            let animation = AnimationStruct(nameTextureAtlas: "Tree_breath", prefixNameFiles: "Tree_breath_")
-            return (animation.textures, animation.action)
+            let animationBreath = AnimationStruct(nameTextureAtlas: "Tree_breath", prefixNameFiles: "Tree_breath_")
+            let repeate = SKAction.repeatForever(animationBreath.action)
+            let animationOn = AnimationStruct(nameTextureAtlas: "Tree_on", prefixNameFiles: "Tree_on_")
+            let action = SKAction.sequence([animationOn.action, repeate])
+            return (animationOn.textures,action)
         case .treeOff:
             let animation = AnimationStruct(nameTextureAtlas: "Tree_breath", prefixNameFiles: "Tree_breath_")
             return (animation.textures, animation.action)
@@ -25,7 +24,6 @@ enum Animation {
     }
 
     case treeBreath
-    case treeOn
     case treeOff
 }
 
