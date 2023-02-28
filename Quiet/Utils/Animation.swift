@@ -13,13 +13,14 @@ enum Animation {
         switch self {
         case .treeBreath:
             let animationBreath = AnimationStruct(nameTextureAtlas: "Tree_breath", prefixNameFiles: "Tree_breath_")
+            animationBreath.action.duration = 2
             let repeate = SKAction.repeatForever(animationBreath.action)
             let animationOn = AnimationStruct(nameTextureAtlas: "Tree_on", prefixNameFiles: "Tree_on_")
             let action = SKAction.sequence([animationOn.action, repeate])
-            return (animationOn.textures,action)
+            return (animationOn.textures + animationBreath.textures,action)
         case .treeOff:
-            let animation = AnimationStruct(nameTextureAtlas: "Tree_breath", prefixNameFiles: "Tree_breath_")
-            return (animation.textures, animation.action)
+            let animation = AnimationStruct(nameTextureAtlas: "Tree_on", prefixNameFiles: "Tree_on_")
+            return (animation.textures, animation.action.reversed())
         }
     }
 
@@ -45,7 +46,7 @@ class AnimationStruct {
             fileNames.append(fileName)
         }
         self.textures = fileNames.map { textureAtlas.textureNamed($0) }
-        action = SKAction.animate(with: textures, timePerFrame: 1.0/30.0)
+        action = SKAction.animate(with: textures, timePerFrame: 1/30)
     }
 }
 
@@ -59,7 +60,6 @@ class Node: SKSpriteNode {
         position.x = 0.5
         position.y = 0.5
         scale(to: CGSize(width: 1, height: 1))
-        speed = 0.2
         self.run(model.1)
     }
 

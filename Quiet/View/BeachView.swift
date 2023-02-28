@@ -121,9 +121,8 @@ class BeachView: UIView {
         coconutTreeAsset.backgroundColor = .clear
         let scene = SKScene()
         scene.backgroundColor = .clear
-        let no = Node(animation: .treeBreath)
+        let no = Node(animation: .treeOff)
         scene.addChild(no)
-//        scene.run(no.animationBreath.action)
         coconutTreeAsset.presentScene(scene)
         coconutTreeAsset.translatesAutoresizingMaskIntoConstraints = false
         let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCoconutTreeAsset(_:)))

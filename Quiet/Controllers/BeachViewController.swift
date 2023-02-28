@@ -64,9 +64,15 @@ extension BeachViewController: BeachViewDelegate {
             playSound(fileName: "wind")
             isPlayingCoconut = false
             playHaptics()
+            let no = Node(animation: .treeOff)
+            beachView.coconutTreeAsset.scene?.removeAllChildren()
+            beachView.coconutTreeAsset.scene?.addChild(no)
         } else {
             playSound(fileName: "wind")
             isPlayingCoconut = true
+            let no = Node(animation: .treeBreath)
+            beachView.coconutTreeAsset.scene?.removeAllChildren()
+            beachView.coconutTreeAsset.scene?.addChild(no)
         }
         
     }
