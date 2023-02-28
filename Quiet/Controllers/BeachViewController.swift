@@ -32,6 +32,23 @@ class BeachViewController: UIViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
+    func didTapseagullsAsset() {
+        playHaptics()
+        if isPlayingSun {
+            playSound(fileName: "seagulls")
+            isPlayingSun = false
+            let no = Node(animation: .seagullOff)
+            beachView.seagullsAsset.scene?.removeAllChildren()
+            beachView.seagullsAsset.scene?.addChild(no)
+        } else {
+            playSound(fileName: "seagulls")
+            isPlayingSun = true
+            let no = Node(animation: .seagullBreath)
+            beachView.seagullsAsset.scene?.removeAllChildren()
+            beachView.seagullsAsset.scene?.addChild(no)
+        }
+    }
+
     func didTapBoatAsset() {
         playHaptics()
         if isPlayingOcean {

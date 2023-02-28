@@ -31,6 +31,16 @@ enum Animation {
         case .boatOff:
             let animation = AnimationStruct(nameTextureAtlas: "Boat_on", prefixNameFiles: "Boat_on_")
             return (animation.textures, animation.action.reversed())
+        case .seagullBreath:
+            let animationBreath = AnimationStruct(nameTextureAtlas: "Seagull_breath", prefixNameFiles: "Seagull_breath_")
+            animationBreath.action.duration = 2
+            let repeate = SKAction.repeatForever(animationBreath.action)
+            let animationOn = AnimationStruct(nameTextureAtlas: "Seagull_on", prefixNameFiles: "Seagull_on_")
+            let action = SKAction.sequence([animationOn.action, repeate])
+            return (animationOn.textures + animationBreath.textures,action)
+        case .seagullOff:
+            let animation = AnimationStruct(nameTextureAtlas: "Seagull_on", prefixNameFiles: "Seagull_on_")
+            return (animation.textures, animation.action.reversed())
         }
     }
 
@@ -38,6 +48,8 @@ enum Animation {
     case treeOff
     case boatBreath
     case boatOff
+    case seagullBreath
+    case seagullOff
 }
 
 class AnimationStruct {

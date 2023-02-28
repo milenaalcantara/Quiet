@@ -17,6 +17,7 @@ protocol BeachViewDelegate: AnyObject {
     func didTapSunAsset()
     func didTapCoconutAsset()
     func didTapBoatAsset()
+    func didTapseagullsAsset()
 }
 
 class BeachView: UIView {
@@ -82,6 +83,23 @@ class BeachView: UIView {
         sunAsset.accessibilityHint = "clique duas vezes para som de gaivotas"
         
         return sunAsset
+    }()
+
+    lazy var seagullsAsset: SKView = {
+        let seagullsAsset = SKView()
+        seagullsAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .seagullOff)
+        scene.addChild(no)
+        seagullsAsset.presentScene(scene)
+        seagullsAsset.translatesAutoresizingMaskIntoConstraints = false
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapseagullsAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        seagullsAsset.addGestureRecognizer(tapPlayGesture)
+        seagullsAsset.isUserInteractionEnabled = true
+        return seagullsAsset
     }()
 
     lazy var oceanAsset: LottieAnimationView = {
@@ -220,6 +238,10 @@ extension BeachView {
     @objc func didTapBoatAsset(_ gesture: UITapGestureRecognizer) {
         delegate?.didTapBoatAsset()
     }
+
+    @objc func didTapseagullsAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapseagullsAsset()
+    }
 }
 
 extension BeachView: ViewCodingProtocol {
@@ -233,6 +255,7 @@ extension BeachView: ViewCodingProtocol {
         addSubview(coconutTreeAsset)
         addSubview(shellAsset)
         addSubview(starAsset)
+        addSubview(seagullsAsset)
 
     }
 
@@ -246,6 +269,7 @@ extension BeachView: ViewCodingProtocol {
         starAssetConstraints()
         infoButtonConstraints()
         soundButtonConstraints()
+        seagullsAssetConstraints()
     }
 }
 
@@ -306,8 +330,8 @@ private extension BeachView {
 
     func coconutTreeAssetConstraints() {
         NSLayoutConstraint.activate([
-            coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30),
-            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25),
+            coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.40),
+            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
             coconutTreeAsset.centerXAnchor.constraint(equalTo: sunAsset.centerXAnchor),
             coconutTreeAsset.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: frame.height * -0.06)
         ])
@@ -330,5 +354,15 @@ private extension BeachView {
             starAsset.bottomAnchor.constraint(equalTo: coconutTreeAsset.bottomAnchor, constant: -10)
         ])
     }
+
+    func seagullsAssetConstraints() {
+        NSLayoutConstraint.activate([
+            seagullsAsset.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.15),
+            seagullsAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
+            seagullsAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
+            seagullsAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.height * -0.05),
+        ])
+    }
+
 
 }
