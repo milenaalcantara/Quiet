@@ -21,11 +21,23 @@ enum Animation {
         case .treeOff:
             let animation = AnimationStruct(nameTextureAtlas: "Tree_on", prefixNameFiles: "Tree_on_")
             return (animation.textures, animation.action.reversed())
+        case .boatBreath:
+            let animationBreath = AnimationStruct(nameTextureAtlas: "Boat_breath", prefixNameFiles: "Boat_breath_")
+            animationBreath.action.duration = 2
+            let repeate = SKAction.repeatForever(animationBreath.action)
+            let animationOn = AnimationStruct(nameTextureAtlas: "Boat_on", prefixNameFiles: "Boat_on_")
+            let action = SKAction.sequence([animationOn.action, repeate])
+            return (animationOn.textures + animationBreath.textures,action)
+        case .boatOff:
+            let animation = AnimationStruct(nameTextureAtlas: "Boat_on", prefixNameFiles: "Boat_on_")
+            return (animation.textures, animation.action.reversed())
         }
     }
 
     case treeBreath
     case treeOff
+    case boatBreath
+    case boatOff
 }
 
 class AnimationStruct {

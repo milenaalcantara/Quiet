@@ -16,6 +16,7 @@ protocol BeachViewDelegate: AnyObject {
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
+    func didTapBoatAsset()
 }
 
 class BeachView: UIView {
@@ -106,15 +107,33 @@ class BeachView: UIView {
         return oceanView
     }()
 
-    lazy var boatAsset: UIImageView = {
-        let boatAsset = UIImageView(image: UIImage(named: "boat"))
+//    lazy var boatAsset: UIImageView = {
+//        let boatAsset = UIImageView(image: UIImage(named: "boat"))
+//        boatAsset.translatesAutoresizingMaskIntoConstraints = false
+//        boatAsset.accessibilityTraits = .button
+//        boatAsset.accessibilityLabel = "Sem som"
+//        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+//        boatAsset.accessibilityHint = "sem som"
+//        return boatAsset
+//    }()
+
+    lazy var boatAsset: SKView = {
+        let boatAsset = SKView()
+        boatAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .boatOff)
+        scene.addChild(no)
+        boatAsset.presentScene(scene)
         boatAsset.translatesAutoresizingMaskIntoConstraints = false
-        boatAsset.accessibilityTraits = .button
-        boatAsset.accessibilityLabel = "Sem som"
-        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        boatAsset.accessibilityHint = "sem som"
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapBoatAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        boatAsset.addGestureRecognizer(tapPlayGesture)
+        boatAsset.isUserInteractionEnabled = true
         return boatAsset
     }()
+
 
     lazy var coconutTreeAsset: SKView = {
         let coconutTreeAsset = SKView()
@@ -196,6 +215,10 @@ extension BeachView {
 
     @objc func didTapCoconutTreeAsset(_ gesture: UITapGestureRecognizer) {
         delegate?.didTapCoconutAsset()
+    }
+
+    @objc func didTapBoatAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapBoatAsset()
     }
 }
 
