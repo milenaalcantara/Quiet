@@ -360,7 +360,7 @@ private extension BeachView {
             seagullsAsset.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.15),
             seagullsAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
             seagullsAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
-            seagullsAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.height * -0.05),
+            seagullsAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.height * 0.05),
         ])
     }
 
