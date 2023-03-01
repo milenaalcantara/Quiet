@@ -8,6 +8,7 @@
 import AVFoundation
 import Lottie
 import UIKit
+import SpriteKit
 
 protocol BeachViewDelegate: AnyObject {
     func didTapInfoButton()
@@ -15,6 +16,8 @@ protocol BeachViewDelegate: AnyObject {
     func didTapOceanAsset()
     func didTapSunAsset()
     func didTapCoconutAsset()
+    func didTapBoatAsset()
+    func didTapseagullsAsset()
 }
 
 class BeachView: UIView {
@@ -82,6 +85,23 @@ class BeachView: UIView {
         return sunAsset
     }()
 
+    lazy var seagullsAsset: SKView = {
+        let seagullsAsset = SKView()
+        seagullsAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .seagullOff)
+        scene.addChild(no)
+        seagullsAsset.presentScene(scene)
+        seagullsAsset.translatesAutoresizingMaskIntoConstraints = false
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapseagullsAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        seagullsAsset.addGestureRecognizer(tapPlayGesture)
+        seagullsAsset.isUserInteractionEnabled = true
+        return seagullsAsset
+    }()
+
     lazy var oceanAsset: LottieAnimationView = {
         let oceanView: LottieAnimationView
         oceanView = .init(name: "ocean-gradient")
@@ -105,37 +125,48 @@ class BeachView: UIView {
         return oceanView
     }()
 
-    lazy var boatAsset: UIImageView = {
-        let boatAsset = UIImageView(image: UIImage(named: "boat"))
+//    lazy var boatAsset: UIImageView = {
+//        let boatAsset = UIImageView(image: UIImage(named: "boat"))
+//        boatAsset.translatesAutoresizingMaskIntoConstraints = false
+//        boatAsset.accessibilityTraits = .button
+//        boatAsset.accessibilityLabel = "Sem som"
+//        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+//        boatAsset.accessibilityHint = "sem som"
+//        return boatAsset
+//    }()
+
+    lazy var boatAsset: SKView = {
+        let boatAsset = SKView()
+        boatAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .boatOff)
+        scene.addChild(no)
+        boatAsset.presentScene(scene)
         boatAsset.translatesAutoresizingMaskIntoConstraints = false
-        boatAsset.accessibilityTraits = .button
-        boatAsset.accessibilityLabel = "Sem som"
-        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        boatAsset.accessibilityHint = "sem som"
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapBoatAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        boatAsset.addGestureRecognizer(tapPlayGesture)
+        boatAsset.isUserInteractionEnabled = true
         return boatAsset
     }()
 
-    lazy var coconutTreeAsset: LottieAnimationView = {
-        let coconutTreeAsset: LottieAnimationView
-        coconutTreeAsset = .init(name: "coqueiro")
-        coconutTreeAsset.loopMode = .loop
-        coconutTreeAsset.play()
-        coconutTreeAsset.contentMode = .scaleToFill
-        coconutTreeAsset.translatesAutoresizingMaskIntoConstraints = false
 
+    lazy var coconutTreeAsset: SKView = {
+        let coconutTreeAsset = SKView()
+        coconutTreeAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .treeOff)
+        scene.addChild(no)
+        coconutTreeAsset.presentScene(scene)
+        coconutTreeAsset.translatesAutoresizingMaskIntoConstraints = false
         let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCoconutTreeAsset(_:)))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
         coconutTreeAsset.addGestureRecognizer(tapPlayGesture)
         coconutTreeAsset.isUserInteractionEnabled = true
-
-        coconutTreeAsset.accessibilityTraits = .button
-        coconutTreeAsset.accessibilityLabel = "Coqueiro"
-        coconutTreeAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        coconutTreeAsset.accessibilityHint = "clique duas vezes para som de vento"
-
-        // coconut voice
-
         return coconutTreeAsset
     }()
 
@@ -203,6 +234,14 @@ extension BeachView {
     @objc func didTapCoconutTreeAsset(_ gesture: UITapGestureRecognizer) {
         delegate?.didTapCoconutAsset()
     }
+
+    @objc func didTapBoatAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapBoatAsset()
+    }
+
+    @objc func didTapseagullsAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapseagullsAsset()
+    }
 }
 
 extension BeachView: ViewCodingProtocol {
@@ -216,6 +255,7 @@ extension BeachView: ViewCodingProtocol {
         addSubview(coconutTreeAsset)
         addSubview(shellAsset)
         addSubview(starAsset)
+        addSubview(seagullsAsset)
 
     }
 
@@ -229,6 +269,7 @@ extension BeachView: ViewCodingProtocol {
         starAssetConstraints()
         infoButtonConstraints()
         soundButtonConstraints()
+        seagullsAssetConstraints()
     }
 }
 
@@ -289,8 +330,8 @@ private extension BeachView {
 
     func coconutTreeAssetConstraints() {
         NSLayoutConstraint.activate([
-            coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30),
-            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
+            coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.40),
+            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
             coconutTreeAsset.centerXAnchor.constraint(equalTo: sunAsset.centerXAnchor),
             coconutTreeAsset.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: frame.height * -0.06)
         ])
@@ -313,5 +354,15 @@ private extension BeachView {
             starAsset.bottomAnchor.constraint(equalTo: coconutTreeAsset.bottomAnchor, constant: -10)
         ])
     }
+
+    func seagullsAssetConstraints() {
+        NSLayoutConstraint.activate([
+            seagullsAsset.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.15),
+            seagullsAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
+            seagullsAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
+            seagullsAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.height * 0.05),
+        ])
+    }
+
 
 }

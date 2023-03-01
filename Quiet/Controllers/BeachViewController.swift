@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
 class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
@@ -26,11 +27,45 @@ class BeachViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
+        self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo         
     }
 }
 
 extension BeachViewController: BeachViewDelegate {
+    func didTapseagullsAsset() {
+        playHaptics()
+        if isPlayingSun {
+            playSound(fileName: "seagulls")
+            isPlayingSun = false
+            let no = Node(animation: .seagullOff)
+            beachView.seagullsAsset.scene?.removeAllChildren()
+            beachView.seagullsAsset.scene?.addChild(no)
+        } else {
+            playSound(fileName: "seagulls")
+            isPlayingSun = true
+            let no = Node(animation: .seagullBreath)
+            beachView.seagullsAsset.scene?.removeAllChildren()
+            beachView.seagullsAsset.scene?.addChild(no)
+        }
+    }
+
+    func didTapBoatAsset() {
+        playHaptics()
+        if isPlayingOcean {
+            playSound(fileName: "ocean-teste")
+            isPlayingOcean = false
+            let no = Node(animation: .boatOff)
+            beachView.boatAsset.scene?.removeAllChildren()
+            beachView.boatAsset.scene?.addChild(no)
+        } else {
+            playSound(fileName: "ocean-teste")
+            isPlayingOcean = true
+            let no = Node(animation: .boatBreath)
+            beachView.boatAsset.scene?.removeAllChildren()
+            beachView.boatAsset.scene?.addChild(no)
+        }
+    }
+
     func didTapSoundButton() {
 
     }
@@ -63,9 +98,15 @@ extension BeachViewController: BeachViewDelegate {
             playSound(fileName: "wind")
             isPlayingCoconut = false
             playHaptics()
+            let no = Node(animation: .treeOff)
+            beachView.coconutTreeAsset.scene?.removeAllChildren()
+            beachView.coconutTreeAsset.scene?.addChild(no)
         } else {
             playSound(fileName: "wind")
             isPlayingCoconut = true
+            let no = Node(animation: .treeBreath)
+            beachView.coconutTreeAsset.scene?.removeAllChildren()
+            beachView.coconutTreeAsset.scene?.addChild(no)
         }
         
     }

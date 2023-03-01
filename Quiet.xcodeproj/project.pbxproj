@@ -38,6 +38,7 @@
 		F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D205C28CB657D0080ABEF /* BeachView.swift */; };
 		F3CBCB9228D9E9FF00D69B50 /* seanulo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */; };
 		F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */ = {isa = PBXBuildFile; fileRef = F3CBCB9328D9FBCB00D69B50 /* ocean.json */; };
+		F863BDB729ACD96A005995C2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863BDB629ACD96A005995C2 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		F38D205C28CB657D0080ABEF /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
 		F3CBCB9128D9E9FF00D69B50 /* seanulo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seanulo.mp3; sourceTree = "<group>"; };
 		F3CBCB9328D9FBCB00D69B50 /* ocean.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ocean.json; sourceTree = "<group>"; };
+		F863BDB629ACD96A005995C2 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				95372628299BC5BB00875922 /* Extensions */,
+				F863BDB629ACD96A005995C2 /* Animation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F863BDB729ACD96A005995C2 /* Animation.swift in Sources */,
 				F31D4B2229968ACC00AD113A /* HapticsManager.swift in Sources */,
 				F38D205D28CB657D0080ABEF /* BeachView.swift in Sources */,
 				F300D74328C7CEB600AE0E9B /* BeachViewController.swift in Sources */,
