@@ -26,23 +26,13 @@ class BeachViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .systemBackground // se estiver no dark, fundo preto, se estiver no light, fundo branco
     }
 }
 
 extension BeachViewController: BeachViewDelegate {
-    func didTapSoundButton() -> Bool {
-        if isPlayingBackgroundSound {
-            playSound(fileName: "ambient")
-            isPlayingBackgroundSound = false
-            playHaptics()
-        } else {
-            playSound(fileName: "ambient") // mudei
-            isPlayingBackgroundSound = true
-        }
-        
-        return isPlayingBackgroundSound
+    func didTapSoundButton() {
+
     }
     
     func didTapOceanAsset() {
@@ -83,21 +73,23 @@ extension BeachViewController: BeachViewDelegate {
     func didTapInfoButton() {
         let infoViewController = InfoViewController()
         let nav = UINavigationController(rootViewController: infoViewController)
-        
         nav.modalPresentationStyle = .pageSheet
         
         if let sheet = nav.sheetPresentationController {
             sheet.detents = [.large()]
+            sheet.preferredCornerRadius = 30
+            sheet.prefersGrabberVisible = true // tracinho em cima da sheet
         }
         
         present(nav, animated: true, completion: nil)
     }
     
     func playHaptics() {
-        HapticsManager.shared.vibrate(for: .success)
+        HapticsManager.shared.vibrateSelection()
     }
 }
 
+ // MARK: Audio Manager
 extension BeachViewController {
     func playSound(fileName: String){
         guard let soundURL = Bundle.main.url(forResource: fileName, withExtension: ".mp3")
