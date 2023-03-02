@@ -108,39 +108,51 @@ class InfoView: UIView {
     }
     
     func configureConstraints() {
-        NSLayoutConstraint.activate([
-            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
-            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            
-            scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
-            aboutTitleLabel.topAnchor.constraint(equalTo: scrollStackViewContainer.topAnchor, constant: 10),
-            aboutTitleLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor),
-            aboutTitleLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9),
+        configureBackgroundImageConstraints()
+        configureScrollViewConstraints()
+        configureTitlesConstraints()
+        configureBodyTextsConstraints()
+    }
+    
+    func configureBackgroundImageConstraints() {
+        backgroundImage.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+    
+    func configureScrollViewConstraints() {
+        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    }
+    
+    func configureTitlesConstraints() {
+        aboutTitleLabel.topAnchor.constraint(equalTo: scrollStackViewContainer.topAnchor, constant: 10).isActive = true
+        aboutTitleLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor).isActive = true
+        aboutTitleLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9).isActive = true
+        
+        creditsTitleLabel.topAnchor.constraint(equalTo: aboutBodyTextLabel.bottomAnchor, constant: 50).isActive = true
+        creditsTitleLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor).isActive = true
+        creditsTitleLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9).isActive = true
+        
+    }
+    
+    func configureBodyTextsConstraints() {
+        aboutBodyTextLabel.topAnchor.constraint(equalTo: aboutTitleLabel.bottomAnchor, constant: 10).isActive = true
+        aboutBodyTextLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor).isActive = true
+        aboutBodyTextLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9).isActive = true
 
-            aboutBodyTextLabel.topAnchor.constraint(equalTo: aboutTitleLabel.bottomAnchor, constant: 10),
-            aboutBodyTextLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor),
-            aboutBodyTextLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9),
-
-            creditsTitleLabel.topAnchor.constraint(equalTo: aboutBodyTextLabel.bottomAnchor, constant: 50),
-            creditsTitleLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor),
-            creditsTitleLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9),
-
-            creditsBodyTextLabel.topAnchor.constraint(equalTo: creditsTitleLabel.bottomAnchor, constant: 10),
-            creditsBodyTextLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor),
-            creditsBodyTextLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9),
-        ])
+        creditsBodyTextLabel.topAnchor.constraint(equalTo: creditsTitleLabel.bottomAnchor, constant: 10).isActive = true
+        creditsBodyTextLabel.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor).isActive = true
+        creditsBodyTextLabel.widthAnchor.constraint(equalTo: scrollStackViewContainer.widthAnchor, multiplier: 0.9).isActive = true
     }
 }
 
