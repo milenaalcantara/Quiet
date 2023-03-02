@@ -22,11 +22,6 @@ class InfoViewController: UIViewController {
 //        print(infoView.aboutSection.aboutAppText.numberOfLines)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        print(infoView.aboutAppText.numberOfLines)
-    }
-    
     func configureNavigationBarItem() {
         let dismissButton = UIBarButtonItem(
             image: UIImage(systemName: "xmark.circle"),
