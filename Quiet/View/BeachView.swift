@@ -49,8 +49,9 @@ class BeachView: UIView {
     }()
 
     lazy var soundButton: UIButton = {
-        let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
-        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        let iconConfig = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title2))
+        //UIFont.preferredFont(forTextStyle: .title2)
+        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal) //
         let soundButton = UIButton()
         soundButton.translatesAutoresizingMaskIntoConstraints = false
         soundButton.setImage(icon, for: .normal)
