@@ -12,12 +12,11 @@ import SpriteKit
 class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
     private var duplicatePlayers = [AVAudioPlayer]()
-    private var isPlayingStar = false
+    
     private var isPlayingBackgroundSound = true
     private var isPlayingOcean = false
     private var isPlayingSun = false
     private var isPlayingCoconut = false
-    private var isPlayingShell = false
     
     private let beachView = BeachView() // inicialização da view BeachView
     
@@ -33,40 +32,6 @@ class BeachViewController: UIViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
-    func didTapShellAsset() {
-        playHaptics()
-        if isPlayingShell {
-//            playSound(fileName: "seagulls")
-            isPlayingShell = false
-            let no = Node(animation: .shellOff)
-            beachView.shellAsset.scene?.removeAllChildren()
-            beachView.shellAsset.scene?.addChild(no)
-        } else {
-//            playSound(fileName: "seagulls")
-            isPlayingShell = true
-            let no = Node(animation: .shellOn)
-            beachView.shellAsset.scene?.removeAllChildren()
-            beachView.shellAsset.scene?.addChild(no)
-        }
-    }
-
-    func didTapStarAsset() {
-        playHaptics()
-        if isPlayingStar {
-//            playSound(fileName: "seagulls")
-            isPlayingStar = false
-            let no = Node(animation: .starOff)
-            beachView.starAsset.scene?.removeAllChildren()
-            beachView.starAsset.scene?.addChild(no)
-        } else {
-//            playSound(fileName: "seagulls")
-            isPlayingStar = true
-            let no = Node(animation: .starBreath)
-            beachView.starAsset.scene?.removeAllChildren()
-            beachView.starAsset.scene?.addChild(no)
-        }
-    }
-
     func didTapseagullsAsset() {
         playHaptics()
         if isPlayingSun {
@@ -149,11 +114,12 @@ extension BeachViewController: BeachViewDelegate {
     func didTapInfoButton() {
         let infoViewController = InfoViewController()
         let nav = UINavigationController(rootViewController: infoViewController)
-        
         nav.modalPresentationStyle = .pageSheet
         
         if let sheet = nav.sheetPresentationController {
             sheet.detents = [.large()]
+            sheet.preferredCornerRadius = 30
+            sheet.prefersGrabberVisible = true // tracinho em cima da sheet
         }
         
         present(nav, animated: true, completion: nil)
@@ -164,6 +130,7 @@ extension BeachViewController: BeachViewDelegate {
     }
 }
 
+ // MARK: Audio Manager
 extension BeachViewController {
     func playSound(fileName: String){
         guard let soundURL = Bundle.main.url(forResource: fileName, withExtension: ".mp3")
