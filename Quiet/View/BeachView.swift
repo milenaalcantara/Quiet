@@ -61,7 +61,7 @@ class BeachView: UIView {
         soundButton.accessibilityTraits = .button
         soundButton.accessibilityLabel = "Som ambiente"
         soundButton.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        soundButton.accessibilityHint = "clique duas vezes para som ambiente"
+        soundButton.accessibilityHint = "clique para som ambiente"
         
         return soundButton
     }()
@@ -80,9 +80,8 @@ class BeachView: UIView {
         // gaivota
         sunAsset.isAccessibilityElement = true
         sunAsset.accessibilityTraits = .button
-        sunAsset.accessibilityLabel = "Gaivotas"
+        sunAsset.accessibilityLabel = "Sol no céu azul claro"
         sunAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        sunAsset.accessibilityHint = "clique duas vezes para som de gaivotas"
         
         return sunAsset
     }()
@@ -101,6 +100,12 @@ class BeachView: UIView {
         tapPlayGesture.numberOfTouchesRequired = 1
         seagullsAsset.addGestureRecognizer(tapPlayGesture)
         seagullsAsset.isUserInteractionEnabled = true
+        // gaivota
+        seagullsAsset.isAccessibilityElement = true
+        seagullsAsset.accessibilityTraits = .button
+        seagullsAsset.accessibilityLabel = "Gaivotas"
+        seagullsAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        seagullsAsset.accessibilityHint = "clique para som de gaivotas"
         
         return seagullsAsset
     }()
@@ -111,12 +116,14 @@ class BeachView: UIView {
         oceanView.loopMode = .loop
         oceanView.play()
         oceanView.contentMode = .scaleToFill
+        oceanView.accessibilityLabel = "Oceano"
+        oceanView.accessibilityHint = "clique para som de ondas"
         oceanView.translatesAutoresizingMaskIntoConstraints = false
-
+        oceanView.isAccessibilityElement = true
         let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapOceanAsset))
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
-
+        
         oceanView.addGestureRecognizer(tapPlayGesture)
         oceanView.isUserInteractionEnabled = true
         return oceanView
@@ -146,6 +153,10 @@ class BeachView: UIView {
         tapPlayGesture.numberOfTouchesRequired = 1
         boatAsset.addGestureRecognizer(tapPlayGesture)
         boatAsset.isUserInteractionEnabled = true
+        boatAsset.accessibilityLabel = "Barco"
+        boatAsset.accessibilityHint = "Clique para som de remada"
+        boatAsset.translatesAutoresizingMaskIntoConstraints = false
+        boatAsset.isAccessibilityElement = true
         return boatAsset
     }()
 
@@ -164,6 +175,10 @@ class BeachView: UIView {
         tapPlayGesture.numberOfTouchesRequired = 1
         coconutTreeAsset.addGestureRecognizer(tapPlayGesture)
         coconutTreeAsset.isUserInteractionEnabled = true
+        coconutTreeAsset.accessibilityLabel = "Coqueiro"
+        coconutTreeAsset.accessibilityHint = "Clique para som de vento"
+        coconutTreeAsset.translatesAutoresizingMaskIntoConstraints = false
+        coconutTreeAsset.isAccessibilityElement = true
         return coconutTreeAsset
     }()
 
@@ -180,6 +195,10 @@ class BeachView: UIView {
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
         shellAsset.addGestureRecognizer(tapPlayGesture)
+        shellAsset.accessibilityLabel = "Caranguejo em movimento entrando na concha"
+        shellAsset.accessibilityHint = "Clique para som de caranguejo"
+        shellAsset.translatesAutoresizingMaskIntoConstraints = false
+        shellAsset.isAccessibilityElement = true
         shellAsset.isUserInteractionEnabled = true
         return shellAsset
     }()
@@ -197,7 +216,11 @@ class BeachView: UIView {
         tapPlayGesture.numberOfTapsRequired = 1
         tapPlayGesture.numberOfTouchesRequired = 1
         starAsset.addGestureRecognizer(tapPlayGesture)
+        starAsset.accessibilityLabel = "Estrela do mar"
+        starAsset.accessibilityHint = "Clique para som de estrela do mar"
+        starAsset.translatesAutoresizingMaskIntoConstraints = false
         starAsset.isUserInteractionEnabled = true
+        starAsset.isAccessibilityElement = true
         return starAsset
     }()
 
@@ -227,14 +250,13 @@ extension BeachView {
         // coloca aqui irá acontecer quando o usuário clicar no elemento x
         delegate?.didTapOceanAsset()
         
-        infoButton.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        soundButton.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        starAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        sunAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        shellAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        infoButton.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
+        soundButton.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
+        starAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
+        shellAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
+        boatAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
 //        oceanAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        coconutTreeAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        coconutTreeAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
         
     }
 
@@ -267,12 +289,11 @@ extension BeachView: ViewCodingProtocol {
         addSubview(soundButton)
         addSubview(sunAsset)
         addSubview(oceanAsset)
-        addSubview(boatAsset)
         addSubview(coconutTreeAsset)
-        addSubview(shellAsset)
+        addSubview(boatAsset)
         addSubview(starAsset)
+        addSubview(shellAsset)
         addSubview(seagullsAsset)
-
     }
 
     func setupConstraints() {
@@ -346,8 +367,8 @@ private extension BeachView {
 
     func coconutTreeAssetConstraints() {
         NSLayoutConstraint.activate([
-            coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.40),
-            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
+            coconutTreeAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
+            coconutTreeAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30),
             coconutTreeAsset.centerXAnchor.constraint(equalTo: sunAsset.centerXAnchor),
             coconutTreeAsset.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: frame.height * -0.06)
         ])
