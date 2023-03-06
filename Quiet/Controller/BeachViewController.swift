@@ -115,13 +115,6 @@ extension BeachViewController: BeachViewDelegate {
         let infoViewController = InfoViewController()
         let nav = UINavigationController(rootViewController: infoViewController)
         nav.modalPresentationStyle = .fullScreen
-//        nav.modalPresentationStyle = .pageSheet
-        
-//        if let sheet = nav.sheetPresentationController {
-//            sheet.detents = [.large()]
-//            sheet.preferredCornerRadius = 30
-//            sheet.prefersGrabberVisible = true // tracinho em cima da sheet
-//        }
         
         present(nav, animated: true, completion: nil)
     }

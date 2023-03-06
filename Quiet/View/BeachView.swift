@@ -50,7 +50,6 @@ class BeachView: UIView {
 
     lazy var soundButton: UIButton = {
         let iconConfig = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title2))
-        //UIFont.preferredFont(forTextStyle: .title2)
         let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal) //
         let soundButton = UIButton()
         soundButton.translatesAutoresizingMaskIntoConstraints = false
@@ -286,19 +285,18 @@ private extension BeachView {
 
     func infoButtonConstraints() {
         NSLayoutConstraint.activate([
-            infoButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.01),
-            infoButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
-            infoButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20)
+            infoButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.05),
+
         ])
     }
 
     func soundButtonConstraints() {
         NSLayoutConstraint.activate([
-            soundButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            soundButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.01),
-            soundButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
-            soundButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20)
+            soundButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            soundButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.05),
+            soundButton.widthAnchor.constraint(equalTo: infoButton.widthAnchor),
+            soundButton.heightAnchor.constraint(equalTo: infoButton.heightAnchor)
         ])
     }
 
