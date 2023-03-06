@@ -99,6 +99,8 @@ class InfoView: UIView {
         return label
     }()
     
+    
+    
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         setupBackground()

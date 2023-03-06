@@ -26,7 +26,7 @@ class BeachView: UIView {
     weak var delegate: BeachViewDelegate?
     
     var player: AVAudioPlayer!
-    var i = 0 // o que é i?
+//    var flag = 0 // o que é i?
     
     var isPlaying = false
 
@@ -122,16 +122,6 @@ class BeachView: UIView {
         return oceanView
     }()
 
-//    lazy var boatAsset: UIImageView = {
-//        let boatAsset = UIImageView(image: UIImage(named: "boat"))
-//        boatAsset.translatesAutoresizingMaskIntoConstraints = false
-//        boatAsset.accessibilityTraits = .button
-//        boatAsset.accessibilityLabel = "Sem som"
-//        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-//        boatAsset.accessibilityHint = "sem som"
-//        return boatAsset
-//    }()
-
     lazy var boatAsset: SKView = {
         let boatAsset = SKView()
         boatAsset.backgroundColor = .clear
@@ -148,7 +138,6 @@ class BeachView: UIView {
         boatAsset.isUserInteractionEnabled = true
         return boatAsset
     }()
-
 
     lazy var coconutTreeAsset: SKView = {
         let coconutTreeAsset = SKView()
@@ -302,8 +291,7 @@ private extension BeachView {
     func infoButtonConstraints() {
         NSLayoutConstraint.activate([
             infoButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.05),
-
+            infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.05)
         ])
     }
 
@@ -311,7 +299,7 @@ private extension BeachView {
         NSLayoutConstraint.activate([
             soundButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             soundButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.05),
-            soundButton.widthAnchor.constraint(equalTo: infoButton.widthAnchor),
+            soundButton.widthAnchor.constraint(equalTo: infoButton.widthAnchor), //: infoButton.widthAnchor
             soundButton.heightAnchor.constraint(equalTo: infoButton.heightAnchor)
         ])
     }
