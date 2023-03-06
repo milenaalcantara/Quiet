@@ -12,11 +12,12 @@ import SpriteKit
 class BeachViewController: UIViewController {
     private var players = [URL:AVAudioPlayer]()
     private var duplicatePlayers = [AVAudioPlayer]()
-    
+    private var isPlayingStar = false
     private var isPlayingBackgroundSound = true
     private var isPlayingOcean = false
     private var isPlayingSun = false
     private var isPlayingCoconut = false
+    private var isPlayingShell = false
     
     private let beachView = BeachView() // inicialização da view BeachView
     
@@ -32,6 +33,40 @@ class BeachViewController: UIViewController {
 }
 
 extension BeachViewController: BeachViewDelegate {
+    func didTapShellAsset() {
+        playHaptics()
+        if isPlayingShell {
+//            playSound(fileName: "seagulls")
+            isPlayingShell = false
+            let no = Node(animation: .shellOff)
+            beachView.shellAsset.scene?.removeAllChildren()
+            beachView.shellAsset.scene?.addChild(no)
+        } else {
+//            playSound(fileName: "seagulls")
+            isPlayingShell = true
+            let no = Node(animation: .shellOn)
+            beachView.shellAsset.scene?.removeAllChildren()
+            beachView.shellAsset.scene?.addChild(no)
+        }
+    }
+
+    func didTapStarAsset() {
+        playHaptics()
+        if isPlayingStar {
+//            playSound(fileName: "seagulls")
+            isPlayingStar = false
+            let no = Node(animation: .starOff)
+            beachView.starAsset.scene?.removeAllChildren()
+            beachView.starAsset.scene?.addChild(no)
+        } else {
+//            playSound(fileName: "seagulls")
+            isPlayingStar = true
+            let no = Node(animation: .starBreath)
+            beachView.starAsset.scene?.removeAllChildren()
+            beachView.starAsset.scene?.addChild(no)
+        }
+    }
+
     func didTapseagullsAsset() {
         playHaptics()
         if isPlayingSun {

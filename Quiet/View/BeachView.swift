@@ -18,6 +18,8 @@ protocol BeachViewDelegate: AnyObject {
     func didTapCoconutAsset()
     func didTapBoatAsset()
     func didTapseagullsAsset()
+    func didTapStarAsset()
+    func didTapShellAsset()
 }
 
 class BeachView: UIView {
@@ -99,6 +101,7 @@ class BeachView: UIView {
         tapPlayGesture.numberOfTouchesRequired = 1
         seagullsAsset.addGestureRecognizer(tapPlayGesture)
         seagullsAsset.isUserInteractionEnabled = true
+        
         return seagullsAsset
     }()
 
@@ -116,12 +119,6 @@ class BeachView: UIView {
 
         oceanView.addGestureRecognizer(tapPlayGesture)
         oceanView.isUserInteractionEnabled = true
-
-        boatAsset.accessibilityTraits = .button
-        boatAsset.accessibilityLabel = "Oceano"
-        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        boatAsset.accessibilityHint = "clique duas vezes para som das ondas"
-
         return oceanView
     }()
 
@@ -170,27 +167,37 @@ class BeachView: UIView {
         return coconutTreeAsset
     }()
 
-    lazy var shellAsset: UIImageView = {
-        let shellAsset = UIImageView(image: UIImage(named: "shell"))
+    lazy var shellAsset: SKView = {
+        let shellAsset = SKView()
+        shellAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .shellOn)
+        scene.addChild(no)
+        shellAsset.presentScene(scene)
         shellAsset.translatesAutoresizingMaskIntoConstraints = false
-        shellAsset.isAccessibilityElement = true
-        shellAsset.accessibilityTraits = .button
-        shellAsset.accessibilityLabel = "Sem som"
-        shellAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        shellAsset.accessibilityHint = "sem som"
-
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapShellAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        shellAsset.addGestureRecognizer(tapPlayGesture)
+        shellAsset.isUserInteractionEnabled = true
         return shellAsset
     }()
-    
-    lazy var starAsset: UIImageView = {
-        let starAsset = UIImageView(image: UIImage (named: "star"))
+
+    lazy var starAsset: SKView = {
+        let starAsset = SKView()
+        starAsset.backgroundColor = .clear
+        let scene = SKScene()
+        scene.backgroundColor = .clear
+        let no = Node(animation: .starOff)
+        scene.addChild(no)
+        starAsset.presentScene(scene)
         starAsset.translatesAutoresizingMaskIntoConstraints = false
-        starAsset.isAccessibilityElement = true
-        starAsset.accessibilityTraits = .button
-        starAsset.accessibilityLabel = "Sem som"
-        starAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-        starAsset.accessibilityHint = "sem som"
-        
+        let tapPlayGesture = UITapGestureRecognizer(target: self, action: #selector(didTapStarAsset(_:)))
+        tapPlayGesture.numberOfTapsRequired = 1
+        tapPlayGesture.numberOfTouchesRequired = 1
+        starAsset.addGestureRecognizer(tapPlayGesture)
+        starAsset.isUserInteractionEnabled = true
         return starAsset
     }()
 
@@ -241,6 +248,15 @@ extension BeachView {
 
     @objc func didTapseagullsAsset(_ gesture: UITapGestureRecognizer) {
         delegate?.didTapseagullsAsset()
+    }
+
+
+    @objc func didTapStarAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapStarAsset()
+    }
+
+    @objc func didTapShellAsset(_ gesture: UITapGestureRecognizer) {
+        delegate?.didTapShellAsset()
     }
 }
 
@@ -320,10 +336,10 @@ private extension BeachView {
 
     func boatAssetConstraints() {
         NSLayoutConstraint.activate([
-            boatAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25),
-            boatAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25),
+            boatAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.35),
+            boatAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.35),
             boatAsset.trailingAnchor.constraint(equalTo: starAsset.trailingAnchor),
-            boatAsset.topAnchor.constraint(equalTo: centerYAnchor, constant: frame.height * -0.10)
+            boatAsset.topAnchor.constraint(equalTo: centerYAnchor, constant: frame.height * -0.15)
         ])
     }
 
@@ -338,19 +354,19 @@ private extension BeachView {
 
     func shellAssetConstrainst() {
         NSLayoutConstraint.activate([
-            shellAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10),
-            shellAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10),
-            shellAsset.trailingAnchor.constraint(equalTo: boatAsset.leadingAnchor),
-            shellAsset.bottomAnchor.constraint(equalTo: bottomAnchor, constant: frame.height * -0.15)
+            shellAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
+            shellAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
+            shellAsset.trailingAnchor.constraint(equalTo: boatAsset.leadingAnchor, constant: frame.width * 0.17),
+            shellAsset.bottomAnchor.constraint(equalTo: bottomAnchor, constant: frame.height * -0.10)
             ])
     }
 
     func starAssetConstraints() {
         NSLayoutConstraint.activate([
-            starAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.08),
-            starAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.08),
-            starAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.10),
-            starAsset.bottomAnchor.constraint(equalTo: coconutTreeAsset.bottomAnchor, constant: -10)
+            starAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
+            starAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
+            starAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.05),
+            starAsset.bottomAnchor.constraint(equalTo: coconutTreeAsset.bottomAnchor, constant: frame.width * 0.08)
         ])
     }
 
@@ -359,7 +375,7 @@ private extension BeachView {
             seagullsAsset.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.15),
             seagullsAsset.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
             seagullsAsset.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
-            seagullsAsset.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.height * 0.05),
+            seagullsAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.height * -0.05),
         ])
     }
 
