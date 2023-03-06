@@ -117,13 +117,13 @@ class InfoView: UIView {
     func setupScrollView(){
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        
-        scrollView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
@@ -139,27 +139,30 @@ class InfoView: UIView {
         aboutBodyTextLabel.centerXAnchor.constraint(equalTo: aboutTextCard.centerXAnchor).isActive = true
         aboutBodyTextLabel.centerYAnchor.constraint(equalTo: aboutTextCard.centerYAnchor).isActive = true
         aboutBodyTextLabel.widthAnchor.constraint(equalTo: aboutTextCard.widthAnchor, multiplier: 0.9).isActive = true
-        
+
         contentView.addSubview(aboutTextCard)
         aboutTextCard.topAnchor.constraint(equalTo: aboutTitleLabel.bottomAnchor, constant: 10).isActive = true
         aboutTextCard.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
         aboutTextCard.heightAnchor.constraint(equalTo: aboutBodyTextLabel.heightAnchor, multiplier: 1.1).isActive = true
         aboutTextCard.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        
+
         contentView.addSubview(creditsTitleLabel)
         creditsTitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         creditsTitleLabel.topAnchor.constraint(equalTo: aboutTextCard.bottomAnchor, constant: 50).isActive = true
         creditsTitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
         
+
         creditsTextCard.addSubview(creditsBodyTextLabel)
         creditsBodyTextLabel.centerXAnchor.constraint(equalTo: creditsTextCard.centerXAnchor).isActive = true
         creditsBodyTextLabel.centerYAnchor.constraint(equalTo: creditsTextCard.centerYAnchor).isActive = true
         creditsBodyTextLabel.widthAnchor.constraint(equalTo: creditsTextCard.widthAnchor, multiplier: 0.9).isActive = true
-        
+
         contentView.addSubview(creditsTextCard)
         creditsTextCard.topAnchor.constraint(equalTo: creditsTitleLabel.bottomAnchor, constant: 10).isActive = true
         creditsTextCard.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
         creditsTextCard.heightAnchor.constraint(equalTo: creditsBodyTextLabel.heightAnchor, multiplier: 1.1).isActive = true
         creditsTextCard.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        creditsTextCard.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true // a chave é essa
+        
     }
 }
