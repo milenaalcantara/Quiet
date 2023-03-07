@@ -342,8 +342,8 @@ private extension BeachView {
 
     func shellAssetConstrainst() {
         NSLayoutConstraint.activate([
-            shellAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
-            shellAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
+            shellAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.22),
+            shellAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.22),
             shellAsset.trailingAnchor.constraint(equalTo: boatAsset.leadingAnchor, constant: frame.width * 0.17),
             shellAsset.bottomAnchor.constraint(equalTo: bottomAnchor, constant: frame.height * -0.10)
             ])
@@ -351,8 +351,8 @@ private extension BeachView {
 
     func starAssetConstraints() {
         NSLayoutConstraint.activate([
-            starAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
-            starAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
+            starAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.14),
+            starAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.14),
             starAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.05),
             starAsset.bottomAnchor.constraint(equalTo: coconutTreeAsset.bottomAnchor, constant: frame.width * 0.08)
         ])
