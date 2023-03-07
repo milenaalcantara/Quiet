@@ -56,11 +56,14 @@ extension BeachViewController: BeachViewDelegate {
 //            playSound(fileName: "seagulls")
             isPlayingStar = false
             let node = Node(animation: .starOff)
+            playSound(fileName: "star")
             beachView.starAsset.scene?.removeAllChildren()
             beachView.starAsset.scene?.addChild(node)
         } else {
 //            playSound(fileName: "seagulls")
             isPlayingStar = true
+            playSound(fileName: "star")
+
             let node = Node(animation: .starBreath)
             beachView.starAsset.scene?.removeAllChildren()
             beachView.starAsset.scene?.addChild(node)

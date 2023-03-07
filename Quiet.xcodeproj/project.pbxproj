@@ -14,6 +14,8 @@
 		6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6441CFAA28DCF8E000F1605E /* wind.mp3 */; };
 		64D0538428D36079007FE75E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64D0538328D36079007FE75E /* success.mp3 */; };
 		9537262A299BC64500875922 /* ViewCoding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95372629299BC64500875922 /* ViewCoding+.swift */; };
+		95B2333F29B7EBD7007CF024 /* crab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95B2333E29B7EBD7007CF024 /* crab.mp3 */; };
+		95B2334129B7F3D9007CF024 /* star.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95B2334029B7F3D9007CF024 /* star.mp3 */; };
 		95DD2BFA2993CD0600E03E98 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 95DD2BF92993CD0600E03E98 /* Lottie */; };
 		F300D73F28C7CEB600AE0E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */; };
 		F300D74128C7CEB600AE0E9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */; };
@@ -66,6 +68,8 @@
 		6441CFAA28DCF8E000F1605E /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		64D0538328D36079007FE75E /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		95372629299BC64500875922 /* ViewCoding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewCoding+.swift"; sourceTree = "<group>"; };
+		95B2333E29B7EBD7007CF024 /* crab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = crab.mp3; path = ../../../Animacoes/crab.mp3; sourceTree = "<group>"; };
+		95B2334029B7F3D9007CF024 /* star.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = star.mp3; path = ../../../Animacoes/star.mp3; sourceTree = "<group>"; };
 		F300D73B28C7CEB600AE0E9B /* Quiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300D73E28C7CEB600AE0E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F300D74028C7CEB600AE0E9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		F3CBCB9028D9E9DD00D69B50 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				95B2334029B7F3D9007CF024 /* star.mp3 */,
+				95B2333E29B7EBD7007CF024 /* crab.mp3 */,
 				F37F038828E5CA6600558C29 /* ambient.mp3 */,
 				F30CD00128E480520039F2BE /* ocean-teste.mp3 */,
 				6441CFA428DC9D4000F1605E /* seagulls.mp3 */,
@@ -402,6 +408,7 @@
 				F3577F7D28DD5BE00098F93C /* splash.json in Resources */,
 				F3577F8128DD64B50098F93C /* 100073-medzen.gif in Resources */,
 				6441CFA728DCF64500F1605E /* coqueiro.json in Resources */,
+				95B2333F29B7EBD7007CF024 /* crab.mp3 in Resources */,
 				6441CFA928DCF8B900F1605E /* sea.mp3 in Resources */,
 				6441CFA528DC9D4000F1605E /* seagulls.mp3 in Resources */,
 				64D0538428D36079007FE75E /* success.mp3 in Resources */,
@@ -409,6 +416,7 @@
 				F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */,
 				F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
+				95B2334129B7F3D9007CF024 /* star.mp3 in Resources */,
 				F37F038928E5CA6600558C29 /* ambient.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
