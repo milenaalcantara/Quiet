@@ -161,7 +161,7 @@ class BeachView: UIView {
         shellAsset.backgroundColor = .clear
         let scene = SKScene()
         scene.backgroundColor = .clear
-        let no = Node(animation: .shellOn)
+        let no = Node(animation: .shellOff)
         scene.addChild(no)
         shellAsset.presentScene(scene)
         shellAsset.translatesAutoresizingMaskIntoConstraints = false
