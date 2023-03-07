@@ -45,11 +45,22 @@ class BeachView: UIView {
         infoButton.isAccessibilityElement = true
         infoButton.accessibilityTraits = .button
         infoButton.accessibilityLabel = "Informações do aplicativo"
-//        button.accessibilityValue = isPlaying ? "Informações" : "Desligado"
         infoButton.accessibilityHint = "informações"
         return infoButton
     }()
-
+    
+    lazy var infoButtonScreen: UIButton = {
+        let infoButtonScreen = UIButton(type: .infoLight)
+        infoButtonScreen.translatesAutoresizingMaskIntoConstraints = false
+        infoButtonScreen.tintColor = .darkGray
+        infoButtonScreen.isAccessibilityElement = true
+        infoButtonScreen.accessibilityLabel = "Informações da tela"
+        infoButtonScreen.tintColor = UIColor.white
+        infoButtonScreen.alpha = 0.1
+        infoButtonScreen.accessibilityHint = "Quiet é um app com uma tela principal colorida e elementos praianos, dividida em três partes. A parte superior da tela, ao lado esquerdo há um sol amarelado e logo em seguida, ao lado direito, gaivotas brancas com bico amarelo e detalhes pretos nas pontas das asas voando livremente, ambos em um céu azul claro. Ao centro da tela temos um oceano em movimento com ondas que vem e vão e um barco marrom com vela branca navegando no canto direito do oceano. Na parte inferior da tela tem a faixa de areia, do lado esquerda há um coqueiro criando uma pequena sombra na areia, com tronco marrom e folhas verdes em movimento. Ao centro da faixa de areia temos uma concha amarelada com detalhes em tom alaranjado com um carangueijo vermelho se escondendo atrás dela e logo mais, no cando inferior direito há uma estrela do mar vermelha com detalhes em vermelho escuro. Explore, respire e relaxe"
+        return infoButtonScreen
+    }()
+    
     lazy var soundButton: UIButton = {
         let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
         let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
@@ -79,9 +90,8 @@ class BeachView: UIView {
 
         // gaivota
         sunAsset.isAccessibilityElement = true
-        sunAsset.accessibilityTraits = .button
         sunAsset.accessibilityLabel = "Sol no céu azul claro"
-        sunAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+   
         
         return sunAsset
     }()
@@ -129,15 +139,6 @@ class BeachView: UIView {
         return oceanView
     }()
 
-//    lazy var boatAsset: UIImageView = {
-//        let boatAsset = UIImageView(image: UIImage(named: "boat"))
-//        boatAsset.translatesAutoresizingMaskIntoConstraints = false
-//        boatAsset.accessibilityTraits = .button
-//        boatAsset.accessibilityLabel = "Sem som"
-//        boatAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
-//        boatAsset.accessibilityHint = "sem som"
-//        return boatAsset
-//    }()
 
     lazy var boatAsset: SKView = {
         let boatAsset = SKView()
@@ -255,7 +256,7 @@ extension BeachView {
         starAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
         shellAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
         boatAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
-//        oceanAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
+        oceanAsset.accessibilityValue = isPlaying ? "Ligado" : "Desligado"
         coconutTreeAsset.accessibilityValue = isPlaying ? "Desligado" : "Ligado"
         
     }
@@ -294,6 +295,7 @@ extension BeachView: ViewCodingProtocol {
         addSubview(starAsset)
         addSubview(shellAsset)
         addSubview(seagullsAsset)
+        addSubview(infoButtonScreen)
     }
 
     func setupConstraints() {
@@ -326,6 +328,15 @@ private extension BeachView {
             infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.01),
             infoButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
             infoButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20)
+        ])
+    }
+    
+    func infoButtonScreenConstraints() {
+        NSLayoutConstraint.activate([
+            infoButtonScreen.topAnchor.constraint(equalTo: topAnchor),
+            infoButtonScreen.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.10),
+            infoButtonScreen.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10),
+            infoButtonScreen.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10)
         ])
     }
 
@@ -403,3 +414,6 @@ private extension BeachView {
 
 
 }
+ /*
+  "Quiet tem uma tela colorida onde os elementos são praianos, onde na parte superior esquerda da tela é composta por um sol em um ceu azulado e logo em seguida na partte direita superior é composta por gaivotas voando livremente, abaixo esta o oceano em movimento com ondas que vem e vão e um barco em movimento, na parte de baixo do lado esquerda há um coqueiro com suas folhas em movimento e logo em seguida na parte direita há um Caranguejo em movimento entrando na concha e uma estrela do mar. Explore, respire e relaxe "
+  */
