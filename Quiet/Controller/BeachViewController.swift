@@ -36,13 +36,13 @@ extension BeachViewController: BeachViewDelegate {
     func didTapShellAsset() {
         playHaptics()
         if isPlayingShell {
-//            playSound(fileName: "seagulls")
+//            playSound(fileName: "crab")
             isPlayingShell = false
             let node = Node(animation: .shellOff)
             beachView.shellAsset.scene?.removeAllChildren()
             beachView.shellAsset.scene?.addChild(node)
         } else {
-//            playSound(fileName: "seagulls")
+//            playSound(fileName: "crab")
             isPlayingShell = true
             let node = Node(animation: .shellOn)
             beachView.shellAsset.scene?.removeAllChildren()
@@ -53,14 +53,14 @@ extension BeachViewController: BeachViewDelegate {
     func didTapStarAsset() {
         playHaptics()
         if isPlayingStar {
-//            playSound(fileName: "seagulls")
+            playSound(fileName: "star")
             isPlayingStar = false
             let node = Node(animation: .starOff)
 //            playSound(fileName: "star")
             beachView.starAsset.scene?.removeAllChildren()
             beachView.starAsset.scene?.addChild(node)
         } else {
-//            playSound(fileName: "seagulls")
+            playSound(fileName: "star")
             isPlayingStar = true
 //            playSound(fileName: "star")
 

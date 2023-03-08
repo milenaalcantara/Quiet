@@ -25,6 +25,8 @@
 		F300D76228C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */; };
 		F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F30CD00128E480520039F2BE /* ocean-teste.mp3 */; };
 		F31D625C29A8FD2000555392 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D625B29A8FD2000555392 /* SectionView.swift */; };
+		F332091129B81AE5000F11B7 /* crab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F332091029B81AE5000F11B7 /* crab.mp3 */; };
+		F332091329B81AFB000F11B7 /* star.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F332091229B81AFB000F11B7 /* star.mp3 */; };
 		F3577F6B28DB565B0098F93C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F6A28DB565B0098F93C /* data.json */; };
 		F3577F7928DD4B7C0098F93C /* ocean-gradient.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7828DD4B7C0098F93C /* ocean-gradient.json */; };
 		F3577F7B28DD567C0098F93C /* beach-background.json in Resources */ = {isa = PBXBuildFile; fileRef = F3577F7A28DD567C0098F93C /* beach-background.json */; };
@@ -80,6 +82,8 @@
 		F300D76128C7CEB700AE0E9B /* DetailsMetterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMetterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F30CD00128E480520039F2BE /* ocean-teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ocean-teste.mp3"; sourceTree = "<group>"; };
 		F31D625B29A8FD2000555392 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		F332091029B81AE5000F11B7 /* crab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crab.mp3; sourceTree = "<group>"; };
+		F332091229B81AFB000F11B7 /* star.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = star.mp3; sourceTree = "<group>"; };
 		F3577F6A28DB565B0098F93C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F3577F7828DD4B7C0098F93C /* ocean-gradient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ocean-gradient.json"; sourceTree = "<group>"; };
 		F3577F7A28DD567C0098F93C /* beach-background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "beach-background.json"; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		F3CBCB9028D9E9DD00D69B50 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				F332091229B81AFB000F11B7 /* star.mp3 */,
+				F332091029B81AE5000F11B7 /* crab.mp3 */,
 				F37F038828E5CA6600558C29 /* ambient.mp3 */,
 				F30CD00128E480520039F2BE /* ocean-teste.mp3 */,
 				6441CFA428DC9D4000F1605E /* seagulls.mp3 */,
@@ -395,6 +401,7 @@
 			files = (
 				F300D74B28C7CEB600AE0E9B /* LaunchScreen.storyboard in Resources */,
 				F3577F7B28DD567C0098F93C /* beach-background.json in Resources */,
+				F332091129B81AE5000F11B7 /* crab.mp3 in Resources */,
 				6441CFAB28DCF8E000F1605E /* wind.mp3 in Resources */,
 				F30CD00228E480520039F2BE /* ocean-teste.mp3 in Resources */,
 				F3577F6B28DB565B0098F93C /* data.json in Resources */,
@@ -409,6 +416,7 @@
 				F3577F7F28DD60140098F93C /* starfish-aplash.json in Resources */,
 				F3CBCB9428D9FBCB00D69B50 /* ocean.json in Resources */,
 				F300D74828C7CEB600AE0E9B /* Assets.xcassets in Resources */,
+				F332091329B81AFB000F11B7 /* star.mp3 in Resources */,
 				F37F038928E5CA6600558C29 /* ambient.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,7 +635,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-com.quiet.beachfeelings";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quiet.beachfeelings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -656,7 +664,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-com.quiet.beachfeelings";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quiet.beachfeelings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
