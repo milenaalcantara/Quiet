@@ -43,10 +43,10 @@ enum Animation {
             return (animation.textures, animation.action.reversed())
         case .shellOn:
             let animation = AnimationStruct(nameTextureAtlas: "Shell_on", prefixNameFiles: "Shell_on_")
-            return (animation.textures, animation.action)
+            return (animation.textures, animation.action.reversed())
         case .shellOff:
             let animation = AnimationStruct(nameTextureAtlas: "Shell_on", prefixNameFiles: "Shell_on_")
-            return (animation.textures, animation.action.reversed())
+            return (animation.textures, animation.action)
         case .starOn:
             let animation = AnimationStruct(nameTextureAtlas: "Star_on", prefixNameFiles: "Star_on_")
             return (animation.textures, animation.action)
@@ -57,6 +57,12 @@ enum Animation {
             let animationBreath = AnimationStruct(nameTextureAtlas: "Star_breath", prefixNameFiles: "Star_breath_")
             let repeate = SKAction.repeatForever(animationBreath.action)
             let animationOn = AnimationStruct(nameTextureAtlas: "Star_on", prefixNameFiles: "Star_on_")
+            let action = SKAction.sequence([animationOn.action, repeate])
+            return (animationOn.textures + animationBreath.textures,action)
+        case .shellBreath:
+            let animationBreath = AnimationStruct(nameTextureAtlas: "Shell_breath", prefixNameFiles: "Shell_breath_")
+            let repeate = SKAction.repeatForever(animationBreath.action)
+            let animationOn = AnimationStruct(nameTextureAtlas: "Shell_on", prefixNameFiles: "Shell_on_")
             let action = SKAction.sequence([animationOn.action, repeate])
             return (animationOn.textures + animationBreath.textures,action)
         }
@@ -71,6 +77,7 @@ enum Animation {
     case seagullOff
     case shellOn
     case shellOff
+    case shellBreath
     case starOn
     case starOff
     case starBreath

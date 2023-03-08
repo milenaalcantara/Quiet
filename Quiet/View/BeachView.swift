@@ -26,7 +26,7 @@ class BeachView: UIView {
     weak var delegate: BeachViewDelegate?
     
     var player: AVAudioPlayer!
-    var i = 0 // o que é i?
+//    var flag = 0 // o que é i?
     
     var isPlaying = false
 
@@ -62,8 +62,8 @@ class BeachView: UIView {
     }()
     
     lazy var soundButton: UIButton = {
-        let iconConfig = UIImage.SymbolConfiguration(pointSize: 22)
-        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        let iconConfig = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title2))
+        let icon = UIImage(systemName: "speaker.slash", withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal) //
         let soundButton = UIButton()
         soundButton.translatesAutoresizingMaskIntoConstraints = false
         soundButton.setImage(icon, for: .normal)
@@ -161,7 +161,6 @@ class BeachView: UIView {
         return boatAsset
     }()
 
-
     lazy var coconutTreeAsset: SKView = {
         let coconutTreeAsset = SKView()
         coconutTreeAsset.backgroundColor = .clear
@@ -188,7 +187,7 @@ class BeachView: UIView {
         shellAsset.backgroundColor = .clear
         let scene = SKScene()
         scene.backgroundColor = .clear
-        let no = Node(animation: .shellOn)
+        let no = Node(animation: .shellOff)
         scene.addChild(no)
         shellAsset.presentScene(scene)
         shellAsset.translatesAutoresizingMaskIntoConstraints = false
@@ -324,10 +323,17 @@ private extension BeachView {
 
     func infoButtonConstraints() {
         NSLayoutConstraint.activate([
-            infoButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.01),
-            infoButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
-            infoButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20)
+            infoButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            infoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.05)
+        ])
+    }
+    
+    func infoButtonScreenConstraints() {
+        NSLayoutConstraint.activate([
+            infoButtonScreen.topAnchor.constraint(equalTo: topAnchor),
+            infoButtonScreen.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.10),
+            infoButtonScreen.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10),
+            infoButtonScreen.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10)
         ])
     }
     
@@ -342,10 +348,10 @@ private extension BeachView {
 
     func soundButtonConstraints() {
         NSLayoutConstraint.activate([
-            soundButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            soundButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.01),
-            soundButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
-            soundButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20)
+            soundButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            soundButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.05),
+            soundButton.widthAnchor.constraint(equalTo: infoButton.widthAnchor), //: infoButton.widthAnchor
+            soundButton.heightAnchor.constraint(equalTo: infoButton.heightAnchor)
         ])
     }
 
@@ -387,8 +393,8 @@ private extension BeachView {
 
     func shellAssetConstrainst() {
         NSLayoutConstraint.activate([
-            shellAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
-            shellAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
+            shellAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.22),
+            shellAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.22),
             shellAsset.trailingAnchor.constraint(equalTo: boatAsset.leadingAnchor, constant: frame.width * 0.17),
             shellAsset.bottomAnchor.constraint(equalTo: bottomAnchor, constant: frame.height * -0.10)
             ])
@@ -396,8 +402,8 @@ private extension BeachView {
 
     func starAssetConstraints() {
         NSLayoutConstraint.activate([
-            starAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
-            starAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.20),
+            starAsset.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.14),
+            starAsset.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.14),
             starAsset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: frame.width * -0.05),
             starAsset.bottomAnchor.constraint(equalTo: coconutTreeAsset.bottomAnchor, constant: frame.width * 0.08)
         ])

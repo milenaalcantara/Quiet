@@ -36,34 +36,37 @@ extension BeachViewController: BeachViewDelegate {
     func didTapShellAsset() {
         playHaptics()
         if isPlayingShell {
-//            playSound(fileName: "seagulls")
+//            playSound(fileName: "crab")
             isPlayingShell = false
-            let no = Node(animation: .shellOff)
+            let node = Node(animation: .shellOff)
             beachView.shellAsset.scene?.removeAllChildren()
-            beachView.shellAsset.scene?.addChild(no)
+            beachView.shellAsset.scene?.addChild(node)
         } else {
-//            playSound(fileName: "seagulls")
+//            playSound(fileName: "crab")
             isPlayingShell = true
-            let no = Node(animation: .shellOn)
+            let node = Node(animation: .shellOn)
             beachView.shellAsset.scene?.removeAllChildren()
-            beachView.shellAsset.scene?.addChild(no)
+            beachView.shellAsset.scene?.addChild(node)
         }
     }
 
     func didTapStarAsset() {
         playHaptics()
         if isPlayingStar {
-//            playSound(fileName: "seagulls")
+            playSound(fileName: "star")
             isPlayingStar = false
-            let no = Node(animation: .starOff)
+            let node = Node(animation: .starOff)
+//            playSound(fileName: "star")
             beachView.starAsset.scene?.removeAllChildren()
-            beachView.starAsset.scene?.addChild(no)
+            beachView.starAsset.scene?.addChild(node)
         } else {
-//            playSound(fileName: "seagulls")
+            playSound(fileName: "star")
             isPlayingStar = true
-            let no = Node(animation: .starBreath)
+//            playSound(fileName: "star")
+
+            let node = Node(animation: .starBreath)
             beachView.starAsset.scene?.removeAllChildren()
-            beachView.starAsset.scene?.addChild(no)
+            beachView.starAsset.scene?.addChild(node)
         }
     }
 
@@ -72,15 +75,15 @@ extension BeachViewController: BeachViewDelegate {
         if isPlayingSun {
             playSound(fileName: "seagulls")
             isPlayingSun = false
-            let no = Node(animation: .seagullOff)
+            let node = Node(animation: .seagullOff)
             beachView.seagullsAsset.scene?.removeAllChildren()
-            beachView.seagullsAsset.scene?.addChild(no)
+            beachView.seagullsAsset.scene?.addChild(node)
         } else {
             playSound(fileName: "seagulls")
             isPlayingSun = true
-            let no = Node(animation: .seagullBreath)
+            let node = Node(animation: .seagullBreath)
             beachView.seagullsAsset.scene?.removeAllChildren()
-            beachView.seagullsAsset.scene?.addChild(no)
+            beachView.seagullsAsset.scene?.addChild(node)
         }
     }
 
@@ -89,20 +92,38 @@ extension BeachViewController: BeachViewDelegate {
         if isPlayingOcean {
             playSound(fileName: "ocean-teste")
             isPlayingOcean = false
-            let no = Node(animation: .boatOff)
+            let node = Node(animation: .boatOff)
             beachView.boatAsset.scene?.removeAllChildren()
-            beachView.boatAsset.scene?.addChild(no)
+            beachView.boatAsset.scene?.addChild(node)
         } else {
             playSound(fileName: "ocean-teste")
             isPlayingOcean = true
-            let no = Node(animation: .boatBreath)
+            let node = Node(animation: .boatBreath)
             beachView.boatAsset.scene?.removeAllChildren()
-            beachView.boatAsset.scene?.addChild(no)
+            beachView.boatAsset.scene?.addChild(node)
         }
     }
 
     func didTapSoundButton() {
-
+        playHaptics()
+        if isPlayingBackgroundSound {
+            playSound(fileName: "ambient")
+            isPlayingBackgroundSound = false
+            toggleSoundIcon(for: "speaker")
+        } else {
+            playSound(fileName: "ambient")
+            isPlayingBackgroundSound = true
+            toggleSoundIcon(for: "speaker.slash")
+        }
+    }
+    
+    func toggleSoundIcon(for iconName: String) {
+        let iconConfig = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title2))
+        let icon = UIImage(
+            systemName: iconName,
+            withConfiguration: iconConfig)?.withTintColor(.darkGray, renderingMode: .alwaysOriginal
+        ) 
+        beachView.soundButton.setImage(icon, for: .normal)
     }
     
     func didTapOceanAsset() {
@@ -133,31 +154,25 @@ extension BeachViewController: BeachViewDelegate {
             playSound(fileName: "wind")
             isPlayingCoconut = false
             playHaptics()
-            let no = Node(animation: .treeOff)
+            let node = Node(animation: .treeOff)
             beachView.coconutTreeAsset.scene?.removeAllChildren()
-            beachView.coconutTreeAsset.scene?.addChild(no)
+            beachView.coconutTreeAsset.scene?.addChild(node)
         } else {
             playSound(fileName: "wind")
             isPlayingCoconut = true
-            let no = Node(animation: .treeBreath)
+            let node = Node(animation: .treeBreath)
             beachView.coconutTreeAsset.scene?.removeAllChildren()
-            beachView.coconutTreeAsset.scene?.addChild(no)
+            beachView.coconutTreeAsset.scene?.addChild(node)
         }
         
     }
     
     func didTapInfoButton() {
         let infoViewController = InfoViewController()
-        let nav = UINavigationController(rootViewController: infoViewController)
-        nav.modalPresentationStyle = .pageSheet
+        let navigator = UINavigationController(rootViewController: infoViewController)
+        navigator.modalPresentationStyle = .fullScreen
         
-        if let sheet = nav.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.preferredCornerRadius = 30
-            sheet.prefersGrabberVisible = true // tracinho em cima da sheet
-        }
-        
-        present(nav, animated: true, completion: nil)
+        present(navigator, animated: true, completion: nil)
     }
     
     func playHaptics() {
