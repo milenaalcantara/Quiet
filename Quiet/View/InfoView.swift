@@ -74,7 +74,7 @@ class InfoView: UIView {
         return label
     }()
 
-    lazy var creditsTextCard: UIView = {
+    lazy var creditsSoundsTextCard: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .init(white: 0, alpha: 0.05)
@@ -82,7 +82,7 @@ class InfoView: UIView {
         return view
     }()
 
-    lazy var creditsBodyTextLabel: UILabel = {
+    lazy var creditsSoundsBodyTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = """
@@ -99,6 +99,33 @@ class InfoView: UIView {
         return label
     }()
     
+    lazy var creditsIlustrationsTextCard: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .init(white: 0, alpha: 0.05)
+        view.layer.cornerRadius = 12
+        return view
+    }()
+
+    lazy var creditsIlustrationsBodyTextLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = """
+        Ilustrações criadas por:
+
+        • Caroline Nogueira
+        • Hanah Santana
+        • Israel Carvalho
+        • Milena Alcântara
+        • Moyses Azevedo
+        """
+        label.numberOfLines = 0
+        label.textColor = .label
+        label.textAlignment = .left
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        return label
+    }()
     
     
     override func willMove(toSuperview newSuperview: UIView?) {
@@ -154,17 +181,28 @@ class InfoView: UIView {
         creditsTitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
         
 
-        creditsTextCard.addSubview(creditsBodyTextLabel)
-        creditsBodyTextLabel.centerXAnchor.constraint(equalTo: creditsTextCard.centerXAnchor).isActive = true
-        creditsBodyTextLabel.centerYAnchor.constraint(equalTo: creditsTextCard.centerYAnchor).isActive = true
-        creditsBodyTextLabel.widthAnchor.constraint(equalTo: creditsTextCard.widthAnchor, multiplier: 0.9).isActive = true
+        creditsSoundsTextCard.addSubview(creditsSoundsBodyTextLabel)
+        creditsSoundsBodyTextLabel.centerXAnchor.constraint(equalTo: creditsSoundsTextCard.centerXAnchor).isActive = true
+        creditsSoundsBodyTextLabel.centerYAnchor.constraint(equalTo: creditsSoundsTextCard.centerYAnchor).isActive = true
+        creditsSoundsBodyTextLabel.widthAnchor.constraint(equalTo: creditsSoundsTextCard.widthAnchor, multiplier: 0.9).isActive = true
 
-        contentView.addSubview(creditsTextCard)
-        creditsTextCard.topAnchor.constraint(equalTo: creditsTitleLabel.bottomAnchor, constant: 10).isActive = true
-        creditsTextCard.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
-        creditsTextCard.heightAnchor.constraint(equalTo: creditsBodyTextLabel.heightAnchor, multiplier: 1.1).isActive = true
-        creditsTextCard.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        creditsTextCard.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true // a chave é essa
+        contentView.addSubview(creditsSoundsTextCard)
+        creditsSoundsTextCard.topAnchor.constraint(equalTo: creditsTitleLabel.bottomAnchor, constant: 10).isActive = true
+        creditsSoundsTextCard.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
+        creditsSoundsTextCard.heightAnchor.constraint(equalTo: creditsSoundsBodyTextLabel.heightAnchor, multiplier: 1.1).isActive = true
+        creditsSoundsTextCard.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+        creditsIlustrationsTextCard.addSubview(creditsIlustrationsBodyTextLabel)
+        creditsIlustrationsBodyTextLabel.centerXAnchor.constraint(equalTo: creditsIlustrationsTextCard.centerXAnchor).isActive = true
+        creditsIlustrationsBodyTextLabel.centerYAnchor.constraint(equalTo: creditsIlustrationsTextCard.centerYAnchor).isActive = true
+        creditsIlustrationsBodyTextLabel.widthAnchor.constraint(equalTo: creditsIlustrationsTextCard.widthAnchor, multiplier: 0.9).isActive = true
+
+        contentView.addSubview(creditsIlustrationsTextCard)
+        creditsIlustrationsTextCard.topAnchor.constraint(equalTo: creditsSoundsTextCard.bottomAnchor, constant: 10).isActive = true
+        creditsIlustrationsTextCard.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
+        creditsIlustrationsTextCard.heightAnchor.constraint(equalTo: creditsIlustrationsBodyTextLabel.heightAnchor, multiplier: 1.1).isActive = true
+        creditsIlustrationsTextCard.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        creditsIlustrationsTextCard.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true // a chave é essa
         
     }
 }
