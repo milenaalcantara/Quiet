@@ -336,15 +336,6 @@ private extension BeachView {
             infoButtonScreen.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10)
         ])
     }
-    
-    func infoButtonScreenConstraints() {
-        NSLayoutConstraint.activate([
-            infoButtonScreen.topAnchor.constraint(equalTo: topAnchor),
-            infoButtonScreen.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.10),
-            infoButtonScreen.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10),
-            infoButtonScreen.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.10)
-        ])
-    }
 
     func soundButtonConstraints() {
         NSLayoutConstraint.activate([
